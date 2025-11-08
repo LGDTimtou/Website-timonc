@@ -903,11 +903,12 @@ function flattenAndAddLabels(triggersNested) {
       .join(" ");
 
   const flattenedList = [];
-  Object.values(triggersNested).forEach((category) => {
-    category.forEach((item) => {
+  Object.entries(triggersNested).forEach(([categoryName, categoryItems]) => {
+    categoryItems.forEach((item) => {
       flattenedList.push({
         ...item,
         label: titleCase(item.name),
+        category: categoryName,
       });
     });
   });
