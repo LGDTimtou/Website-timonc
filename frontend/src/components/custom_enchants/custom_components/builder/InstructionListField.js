@@ -21,7 +21,7 @@ const InstructionListField = ({
 }) => {
   return (
     <div className="instruction-list-field">
-      <h4 className="commands-title offset">{title}:</h4>
+      <h4 className="commands-title">{title}:</h4>
       {instructions.map((instruction, index) => (
         <div className="command-card" key={index}>
           {instruction.type === "command" && (

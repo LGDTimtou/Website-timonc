@@ -38,6 +38,7 @@ export const defaultLevel = {
   chance: 100,
   cancel_event: false,
   cooldown_message: "",
+  cleanup_commands: [],
   instructions: [],
 };
 
@@ -100,6 +101,7 @@ export const jsonToYaml = (formState) => {
                   cooldown: level.cooldown,
                   cooldown_message: level.cooldown_message.trim(),
                   chance: level.chance,
+                  cleanup_commands: level.cleanup_commands,
                   instructions: formatInstructions(level.instructions),
                 },
               }))
@@ -137,6 +139,12 @@ export const yamlToJson = async (yaml) => {
   const filteredTags = Object.keys(definition.tags ?? {}).filter(
     (key) => definition.tags[key]
   );
+
+  for (const trigger of Object.keys(enchantmentData.triggers)) {
+    console.log(trigger);
+
+    console.log(enchantmentData.triggers[trigger].levels);
+  }
 
   const formState = JSON.parse(JSON.stringify(defaultFormState));
 
@@ -207,7 +215,6 @@ export const yamlToJson = async (yaml) => {
   const tempTriggers = triggers.filter((trigger) =>
     (Object.keys(enchantmentData.triggers) ?? []).includes(trigger.name)
   );
-
   formState.triggers = await Promise.all(
     tempTriggers.map(async (trigger) => {
       const loadedTrigger = await loadTrigger(
@@ -265,6 +272,7 @@ export const yamlToJson = async (yaml) => {
           cooldown_message: level.cooldown_message ?? "",
           chance: level.chance,
           cancel_event: level.cancel_event,
+          cleanup_commands: level.cleanup_commands ?? [],
           instructions: parseYamlInstructions(level.instructions),
         })),
       };

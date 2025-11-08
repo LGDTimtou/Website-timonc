@@ -3,6 +3,8 @@ import InputField from "../InputField";
 import ToggleSwitchField from "../ToggleSwitchField";
 import InstructionListField from "./InstructionListField";
 import { cooldown_message_parameters } from "../../../../data/trigger_conditions/parameters";
+import ResizableTextAreaField from "../ResizableTextAreaField";
+import { FaTimes } from "react-icons/fa";
 
 const instructionsDefaultValues = {
   repeat: {
@@ -49,6 +51,32 @@ const LevelField = React.memo(
       const updatedLevel = {
         ...level,
         [name]: checked,
+      };
+      onChange(id, updatedLevel);
+    };
+
+    const handleAddCleanupCommand = () => {
+      const updatedLevel = {
+        ...level,
+        cleanup_commands: [...level.cleanup_commands, ""],
+      };
+      onChange(id, updatedLevel);
+    };
+
+    const hanldeChangeCleanupCommand = (index, value) => {
+      const updatedLevel = {
+        ...level,
+        cleanup_commands: level.cleanup_commands.map((cmd, i) =>
+          i === index ? value : cmd
+        ),
+      };
+      onChange(id, updatedLevel);
+    };
+
+    const handleRemoveCleanupCommand = (index) => {
+      const updatedLevel = {
+        ...level,
+        cleanup_commands: level.cleanup_commands.filter((_, i) => i !== index),
       };
       onChange(id, updatedLevel);
     };
@@ -266,6 +294,38 @@ const LevelField = React.memo(
           onAddInstruction={handleAddInstruction}
           onMoveInstruction={handleMoveInstruction}
         />
+        <h4 className="commands-title" style={{ marginTop: "50px" }}>
+          Cleanup Commands:
+        </h4>
+        {level.cleanup_commands.map((command, index) => (
+          <div style={{ display: "flex" }}>
+            <ResizableTextAreaField
+              label="Command"
+              description="Command to be executed by the console when the server shuts down and the instructions haven't finished executing"
+              name="value"
+              autoCompleteOptions={{ "%": parameters }}
+              value={command}
+              onChange={(e) => {
+                hanldeChangeCleanupCommand(index, e.target.value);
+              }}
+            />
+            <button
+              className="instruction-btn remove"
+              style={{ height: "44px" }}
+              onClick={() => {
+                handleRemoveCleanupCommand(index);
+              }}
+            >
+              <FaTimes />
+            </button>
+          </div>
+        ))}
+        <button
+          className="add-btn-text"
+          onClick={() => handleAddCleanupCommand()}
+        >
+          + Add Cleanup Command
+        </button>
       </div>
     );
   }
