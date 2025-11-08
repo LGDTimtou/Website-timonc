@@ -200,6 +200,60 @@ export const triggers_nested = {
         },
       ],
     },
+    {
+      name: "shift_left_click",
+      description: "Triggered when the player shift-left-clicks",
+      trigger_conditions: [],
+    },
+    {
+      name: "shift_left_click_air",
+      description: "Triggered when the player shift-left-clicks in the air",
+      trigger_conditions: [],
+    },
+    {
+      name: "shift_left_click_block",
+      description: "Triggered when the player shift-left-clicks a block",
+      trigger_conditions: [
+        {
+          group: "block",
+          prefix: "clicked",
+          description: "the block that was clicked",
+        },
+      ],
+    },
+    {
+      name: "shift_right_click",
+      description: "Triggered when the player shift-right-clicks",
+      trigger_conditions: [],
+    },
+    {
+      name: "shift_right_click_air",
+      description: "Triggered when the player shift-right-clicks in the air",
+      trigger_conditions: [],
+    },
+    {
+      name: "shift_right_click_block",
+      description: "Triggered when the player shift-right-clicks a block",
+      trigger_conditions: [
+        {
+          group: "block",
+          prefix: "clicked",
+          description: "the block that was clicked",
+        },
+      ],
+    },
+    {
+      name: "shift_right_click_entity",
+      description: "Triggered when the player shift-right-clicks an entity",
+      trigger_conditions: [
+        {
+          group: "entity",
+          prefix: "clicked",
+          description: "the entity that was clicked",
+          value_type: "entity",
+        },
+      ],
+    },
   ],
   damage: [
     {
