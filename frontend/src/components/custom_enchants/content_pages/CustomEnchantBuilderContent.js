@@ -359,7 +359,7 @@ const CustomEnchantBuilderContent = () => {
           <h2 className="content-box-title">Extra settings</h2>
           <ToggleSwitchField
             label="Use Default Item Locations"
-            description="Use default item locations when checking where the enchanted item is equipped (e.g., damage_player → main hand, armor_equip → armor slot)"
+            description="Use default item locations when checking where the enchanted item is equipped (main_hand, armor)"
             name="default_enchantment_location"
             checked={formState.default_enchantment_location}
             onChange={handleCheckboxChange}
