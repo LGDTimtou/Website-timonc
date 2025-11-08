@@ -28,6 +28,10 @@
   padding-bottom: 10px;
 }
 
+.highlight {
+  color: var(--highlight-color);
+}
+
 .subsubsection-title {
   font-family: "Minecraft", monospace;
   font-size: 1.3rem;

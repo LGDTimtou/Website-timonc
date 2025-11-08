@@ -62,7 +62,9 @@ const TriggerContent = ({ category, triggerName, trigger }) => {
       </div>
       {trigger.trigger_conditions.length > 0 && (
         <div className="parameters-section">
-          <p className="subsection-title offset">Specific Trigger Conditions</p>
+          <p className="subsection-title offset">
+            Trigger Specific Conditions and Parameters
+          </p>
           {trigger.trigger_conditions.map((triggerConditionParent) => (
             <div>
               <p className="subsubsection-title offset">
@@ -70,8 +72,8 @@ const TriggerContent = ({ category, triggerName, trigger }) => {
                   combineStrings(
                     "_",
                     triggerConditionParent.prefix,
-                    triggerConditionParent.group,
-                  ),
+                    triggerConditionParent.group
+                  )
                 )}
               </p>
               {triggerConditionGroups[triggerConditionParent.group].values.map(
@@ -80,21 +82,18 @@ const TriggerContent = ({ category, triggerName, trigger }) => {
                     "_",
                     triggerConditionParent.prefix,
                     triggerConditionParent.group,
-                    triggerCondition.suffix,
+                    triggerCondition.suffix
                   );
                   return (
                     <div className="parameter-item">
-                      <span className="parameter-name">
-                        {toTitleCase(name)}:
-                      </span>
+                      <span className="parameter-name">%{name}%</span>
                       <span className="parameter-description">
                         {triggerCondition.description +
-                          triggerConditionParent.description}{" "}
-                        -&gt; %{name}%
+                          triggerConditionParent.description}
                       </span>
                     </div>
                   );
-                },
+                }
               )}
             </div>
           ))}
@@ -102,7 +101,9 @@ const TriggerContent = ({ category, triggerName, trigger }) => {
       )}
 
       <div className="parameters-section">
-        <p className="subsection-title offset">Global Trigger Conditions</p>
+        <p className="subsection-title offset">
+          Global Trigger Conditions and Parameters
+        </p>
         {globalTriggerConditions.map((triggerConditionParent) => (
           <div>
             <p className="subsubsection-title offset">
@@ -110,8 +111,8 @@ const TriggerContent = ({ category, triggerName, trigger }) => {
                 combineStrings(
                   "_",
                   triggerConditionParent.prefix,
-                  triggerConditionParent.group,
-                ),
+                  triggerConditionParent.group
+                )
               )}
             </p>
             {triggerConditionGroups[triggerConditionParent.group].values.map(
@@ -120,19 +121,18 @@ const TriggerContent = ({ category, triggerName, trigger }) => {
                   "_",
                   triggerConditionParent.prefix,
                   triggerConditionParent.group,
-                  triggerCondition.suffix,
+                  triggerCondition.suffix
                 );
                 return (
                   <div className="parameter-item">
-                    <span className="parameter-name">{toTitleCase(name)}:</span>
+                    <span className="parameter-name">%{name}%</span>
                     <span className="parameter-description">
                       {triggerCondition.description +
-                        triggerConditionParent.description}{" "}
-                      -&gt; %{name}%
+                        triggerConditionParent.description}
                     </span>
                   </div>
                 );
-              },
+              }
             )}
           </div>
         ))}
