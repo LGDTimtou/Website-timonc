@@ -5,6 +5,7 @@ import SaveLoadInstruction from "./instructions/SaveLoadInstruction";
 import WhileInstruction from "./instructions/WhileInstruction";
 import ConditionalInstruction from "./instructions/ConditionalInstruction";
 import { FaChevronUp, FaChevronDown, FaTimes } from "react-icons/fa";
+import CancelInstruction from "./instructions/CancelInstruction";
 
 const InstructionListField = ({
   title = "Instructions",
@@ -89,6 +90,15 @@ const InstructionListField = ({
               onRemoveInstruction={onRemoveInstruction}
               onAddInstruction={onAddInstruction}
               onMoveInstruction={onMoveInstruction}
+            />
+          )}
+
+          {instruction.type === "cancel" && (
+            <CancelInstruction
+              instruction={instruction}
+              parentIndices={[...parentIndices, index]}
+              onChangeInstructionValue={onChangeInstructionValue}
+              onChangeInstructionType={onChangeInstructionType}
             />
           )}
 

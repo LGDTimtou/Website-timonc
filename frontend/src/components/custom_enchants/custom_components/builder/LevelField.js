@@ -54,8 +54,6 @@ const LevelField = React.memo(
     };
 
     const updateNestedInstruction = (instructions, path, updater) => {
-      console.log(instructions);
-
       if (path.length === 0) return instructions;
 
       const [[currentIndex, targetValue], ...restPath] = Array.isArray(path[0])
@@ -183,8 +181,6 @@ const LevelField = React.memo(
           level.instructions,
           path,
           (cmd) => {
-            console.log("updating " + cmd);
-
             return {
               type: type,
               value: instructionsDefaultValues[type] ?? "",

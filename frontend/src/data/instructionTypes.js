@@ -6,4 +6,5 @@ export const instructionTypes = [
   { name: "load", label: "Load" },
   { name: "conditional", label: "Conditional" },
   { name: "while", label: "While" },
+  { name: "cancel", label: "Cancel" },
 ];

@@ -14,7 +14,7 @@ const YamlPopup = ({ isVisible, onClose, onConfirm }) => {
         setYamlContent("");
         onClose();
       } catch (error) {
-        alert("Failed to parse YAML. Please check the syntax.");
+        alert("Failed to parse YAML.\n" + error);
         console.error(error);
       } finally {
         setIsLoading(false);

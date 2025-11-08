@@ -92,7 +92,8 @@ const CustomEnchantBuilderContent = () => {
           } else setFormState(defaultFormState);
         } catch (err) {
           alert(
-            "Failed to load YAML, Please copy the YAML manually from the enchantments.yml file"
+            "Failed to load YAML, Please copy the YAML manually from the enchantments.yml file\n" +
+              err
           );
           setSecret(undefined);
           setPopupVisible(true);
