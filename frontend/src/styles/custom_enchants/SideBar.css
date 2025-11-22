@@ -1,67 +1,76 @@
 .sidebar {
-    width: 250px;
-    background-color: #0d1117;
-    /* Dark background color */
-    color: #c9d1d9;
-    /* Light gray text */
-    padding: 10px 7px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    border-right: 1px solid #30363d;
-    /* Border color */
+  width: 250px;
+  background-color: #0d1117;
+  /* Dark background color */
+  color: #c9d1d9;
+  /* Light gray text */
+  padding: 10px 7px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  border-right: 1px solid #30363d;
+  /* Border color */
 }
 
-
 .sidebar-section-title {
-    font-size: 14px;
-    font-weight: 600;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 40px;
-    background-color: #0d1117;
-    /* Slightly darker background */
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    transition: background 0.3s ease;
-    margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  background-color: #0d1117;
+  /* Slightly darker background */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+  margin-bottom: 5px;
 }
 
 .sidebar-section-title:hover {
-    background-color: #21262d;
-    /* Hover effect background */
+  background-color: #21262d;
+  /* Hover effect background */
 }
 
 .active {
-    background-color: #21262d;
-    /* Highlight color */
-    color: #58a6ff;
-    /* Active text color */
-    font-weight: bold;
+  background-color: #21262d;
+  /* Highlight color */
+  color: #58a6ff;
+  /* Active text color */
+  font-weight: bold;
 }
 
-
 .sidebar-section-title.level-1 {
-    font-size: 12px;
-    font-weight: 500;
-    height: 20px;
-    padding: 6px 10px;
-    border-radius: 10px;
-    margin-left: 15px;
-    cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  height: 20px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 .sidebar-section-title.level-2 {
-    font-size: 12px;
-    font-weight: 500;
-    height: 20px;
-    padding: 6px 10px;
-    border-radius: 10px;
-    margin-left: 30px;
-    cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  height: 20px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.sidebar-section-title.level-3 {
+  font-size: 12px;
+  font-weight: 500;
+  height: 20px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  margin-left: 45px;
+  cursor: pointer;
 }
 
 .toggle-icon {
-    padding-right: 20px;
+  padding-right: 20px;
 }

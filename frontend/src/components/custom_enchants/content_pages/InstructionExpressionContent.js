@@ -1,11 +1,13 @@
 import TipBox from "../custom_components/TipBox";
 import ExtraFunctionalityTipBox from "../custom_components/ExtraFunctionalityTipBox";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const InstructionExpressionContent = () => {
   return (
     <div>
       <p className="content-intro">
-        An explenation of how expressions can be used in instructions, delay
+        Documentation on how expressions can be used in instructions, delay
         values...
       </p>
       <div className="parameters-section">
@@ -25,16 +27,18 @@ const InstructionExpressionContent = () => {
           .
         </p>
         <p className="minecraft offset">
-          <strong>Example:</strong>
+          <span className="highlight">Example</span>, teleporting the player 4
+          blocks up in the air:
         </p>
         <pre className="code-block offset">
-          <code>
+          <SyntaxHighlighter
+            language="java"
+            style={stackoverflowDark}
+            customStyle={{ background: "", paddingLeft: "20px" }}
+          >
             tp %player% %player_x% $[%player_y% + sqrt(16)] %player_z%
-          </code>
+          </SyntaxHighlighter>
         </pre>
-        <p className="minecraft offset">
-          This command would teleport the player 4 blocks up.
-        </p>
         <TipBox>
           <ul>
             <li>

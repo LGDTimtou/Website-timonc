@@ -8,9 +8,9 @@ const sorted_triggers = triggers
 
 const CancelInstruction = ({
   instruction,
-  parentIndices,
-  onChangeInstructionValue,
-  onChangeInstructionType,
+  parentIndices = [],
+  onChangeInstructionValue = () => {},
+  onChangeInstructionType = () => {},
 }) => {
   return (
     <div className="instruction-box-fields">

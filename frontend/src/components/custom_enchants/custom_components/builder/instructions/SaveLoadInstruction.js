@@ -5,10 +5,10 @@ import ToggleSwitchField from "../../ToggleSwitchField";
 
 const SaveLoadInstruction = ({
   instruction,
-  parentIndices,
+  parentIndices = [],
   parameters,
-  onChangeInstructionValue,
-  onChangeInstructionType,
+  onChangeInstructionValue = () => {},
+  onChangeInstructionType = () => {},
 }) => {
   return (
     <div className="instruction-box-fields">

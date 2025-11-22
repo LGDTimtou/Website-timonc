@@ -4,10 +4,10 @@ import { instructionTypes } from "../../../../../data/instructionTypes";
 
 const CommandInstruction = ({
   instruction,
-  parentIndices,
+  parentIndices = [],
   parameters,
-  onChangeInstructionValue,
-  onChangeInstructionType,
+  onChangeInstructionValue = (e) => {},
+  onChangeInstructionType = (e) => {},
 }) => {
   return (
     <div className="instruction-box-fields">
