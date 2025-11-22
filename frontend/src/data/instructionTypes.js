@@ -3,7 +3,7 @@ export const instructionTypes = [
   { name: "delay", label: "Delay" },
   { name: "repeat", label: "Repeat" },
   { name: "save", label: "Save" },
-  { name: "load", label: "Load" },
+  { name: "load", label: "Load Default" },
   { name: "conditional", label: "Conditional" },
   { name: "while", label: "While" },
   { name: "cancel", label: "Cancel" },
