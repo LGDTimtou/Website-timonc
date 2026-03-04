@@ -12,6 +12,7 @@ body {
     display: flex;
     justify-content: space-between; /* Align content to the left and right */
     align-items: center; /* Center vertically */
+    position: relative;
     padding: 20px;
     padding-bottom: 15px;
     padding-left: 30px;
@@ -38,6 +39,42 @@ body {
     padding-right: 100px;
 }
 
+.mobile-actions {
+    display: none;
+    align-items: center;
+    gap: 14px;
+}
+
+.mobile-github-link {
+    display: none;
+    color: var(--accent-color);
+    text-decoration: none;
+    line-height: 1;
+}
+
+.mobile-github-link .github-icon {
+    font-size: 1.5rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    margin: 5px 0;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
 .name {
     color: var(--accent-color);
     font-size: 28px;
@@ -52,16 +89,26 @@ body {
     opacity: 0.8; /* Slightly muted */
 }
 
+.tagline-line {
+    display: inline;
+}
+
+.tagline-separator {
+    display: inline;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 50px; /* Add spacing between links */
     margin: 0;
     padding: 0;
 }
 
 .nav-links li {
-    display: inline;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
@@ -75,4 +122,148 @@ body {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     color: var(--hover-color);
+}
+
+.github-link a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.github-icon {
+    font-size: 1.7rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.github-link a:hover {
+    text-decoration: none;
+}
+
+.github-link a:hover .github-icon {
+    transform: scale(1.15);
+}
+
+@media (max-width: 1100px) {
+    .home-header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .home-header-right {
+        padding-right: 20px;
+    }
+
+    .nav-links {
+        gap: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-header {
+        padding: 14px 16px;
+    }
+
+    .home-header-container {
+        align-items: center;
+    }
+
+    .name {
+        font-size: 22px;
+    }
+
+    .tagline {
+        font-size: 13px;
+        line-height: 1.35;
+        margin: 4px 0 0;
+        max-width: 220px;
+    }
+
+    .tagline-line {
+        display: block;
+    }
+
+    .tagline-separator {
+        display: none;
+    }
+
+    .mobile-actions {
+        display: flex;
+    }
+
+    .mobile-github-link {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .mobile-github-link:hover .github-icon {
+        transform: scale(1.12);
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 101;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .home-header-right {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 12px;
+        width: auto;
+        min-width: 180px;
+        padding: 0;
+        display: none;
+        background-color: var(--bg-color);
+        border: 1px solid var(--accent-color);
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+        z-index: 120;
+    }
+
+    .home-header-right.open {
+        display: flex;
+    }
+
+    .nav-links {
+        width: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 8px 14px;
+    }
+
+    .nav-links li {
+        width: auto;
+    }
+
+    .nav-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        width: auto;
+    }
+
+    .github-link a {
+        justify-content: flex-start;
+    }
+
+    .nav-links .github-link {
+        display: none;
+    }
+
+    .github-icon {
+        font-size: 1.55rem;
+    }
 }
