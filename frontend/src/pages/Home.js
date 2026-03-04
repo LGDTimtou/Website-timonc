@@ -6,6 +6,7 @@ import customEnchantsPicture from "../assets/images/custom_enchants.png";
 import somkoPicture from "../assets/images/odoo.png";
 import brittleStarPicture from "../assets/images/brittle_star.webp";
 import spgPicture from "../assets/images/spg_emulator.gif";
+import tinyMlPicture from "../assets/images/tiny_ml.gif";
 import Project from "../components/home/Project";
 import Header from "../components/home/HomeHeader";
 import Footer from "../components/Footer";
@@ -33,16 +34,6 @@ const projects = {
         link: "https://somko.be",
         altText: "Somko Odoo ERP Development",
     },
-    brittleStarRL: {
-        title: "Reinforcement Learning Research: Brittle Star Locomotion",
-        short_description:
-            "A bio-inspired robotics study using Open Evolution Strategies (OpenES) to train an ANN-controlled brittle star for efficient, decentralized locomotion in MuJoCo.",
-        description:
-            "This research explores the intersection of evolutionary biology and reinforcement learning by simulating a brittle star’s decentralized movement. Using the MuJoCo physics engine and the Evosax framework, I developed a neural network controller trained via Open Evolution Strategies (OpenES). \n\nThe project involved designing custom reward structures for both 'Origin Avoidance' and 'Target Pursuit' tasks. By implementing energy-aware fitness functions, the simulation achieved an 8% increase in movement efficiency and more naturalistic biomechanical trajectories. The system features a modular architecture, allowing for flexible morphological configurations and detailed analysis of limb coordination (in-plane vs. out-of-plane) through custom visualization and plotting tools.",
-        imageUrl: brittleStarPicture,
-        link: "/files/brittle_star_research.pdf",
-        altText: "Reinforcement Learning Brittle Star Simulation",
-    },
     spg_emulator: {
         title: "Low-Level Game Engine & CPU Emulator",
         short_description: 
@@ -52,6 +43,26 @@ const projects = {
         imageUrl: spgPicture,
         link: "/files/spg_emulator.pdf",
         altText: "C++ CPU Emulator and ECS Game Engine",
+    },
+    tiny_ml: {
+        title: "TinyML: Low-Power Person Detection",
+        short_description:
+            "Developed a lightweight, real-time person detection system for UAVs using optimized TinyML models to enhance search and rescue operational time.",
+        description:
+            "This project addresses the energy constraints of search and rescue (SAR) drones by deploying on-device inference to eliminate the need for power-hungry live video streaming. \n\nWe evaluated several state-of-the-art models (YOLO, FOMO, MobileNet-SSD, and EfficientDet), ultimately selecting and fine-tuning YOLO11n for its great balance of accuracy and latency. \n\nUsing TensorFlow Lite, we implemented post-training quantization (int8 and float16) to reduce model size by up to 75% while maintaining high detection precision. The system was benchmarked on Raspberry Pi 5 hardware, simulating a solar-powered UAV environment where we analyzed the trade-offs between CPU thermal output, energy consumption, and real-time inference speed.",
+        imageUrl: tinyMlPicture,
+        link: "/files/tiny_ml_project.pdf", 
+        altText: "UAV Person Detection on Edge Hardware",
+    },
+    brittleStarRL: {
+        title: "Reinforcement Learning Research: Brittle Star Locomotion",
+        short_description:
+            "A bio-inspired robotics study using Open Evolution Strategies (OpenES) to train an ANN-controlled brittle star for efficient, decentralized locomotion in MuJoCo.",
+        description:
+            "This research explores the intersection of evolutionary biology and reinforcement learning by simulating a brittle star’s decentralized movement. Using the MuJoCo physics engine and the Evosax framework, I developed a neural network controller trained via Open Evolution Strategies (OpenES). \n\nThe project involved designing custom reward structures for both 'Origin Avoidance' and 'Target Pursuit' tasks. By implementing energy-aware fitness functions, the simulation achieved an 8% increase in movement efficiency and more naturalistic biomechanical trajectories. The system features a modular architecture, allowing for flexible morphological configurations and detailed analysis of limb coordination (in-plane vs. out-of-plane) through custom visualization and plotting tools.",
+        imageUrl: brittleStarPicture,
+        link: "/files/brittle_star_research.pdf",
+        altText: "Reinforcement Learning Brittle Star Simulation",
     },
     custom_enchants: {
         title: "Minecraft Plugin:⚡Custom Enchants⚡",
