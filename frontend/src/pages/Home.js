@@ -3,6 +3,9 @@ import "../styles/home/Home.css";
 import profilePicture from "../assets/images/portret.jpg";
 import renoperfectPicture from "../assets/images/renoperfect.jpg";
 import customEnchantsPicture from "../assets/images/custom_enchants.png";
+import somkoPicture from "../assets/images/odoo.png";
+import brittleStarPicture from "../assets/images/brittle_star.webp";
+import spgPicture from "../assets/images/spg_emulator.gif";
 import Project from "../components/home/Project";
 import Header from "../components/home/HomeHeader";
 import Footer from "../components/Footer";
@@ -19,6 +22,36 @@ const projects = {
         imageUrl: renoperfectPicture,
         link: "https://renoperfect.be",
         altText: "RenoPerfect",
+    },
+    somko: {
+        title: "Odoo ERP: Internship Somko",
+        short_description:
+            "Upgraded Somko’s internal Odoo ERP by developing a custom client portal for ticket management and a backend sprint system for project managers.",
+        description:
+            "Developed a custom extension for the Odoo ERP system to bridge the communication gap between clients and project managers. I designed and implemented a dedicated client platform that allows users to create tickets with specific parameters and interact via a chat system.\n\nI developed a sprint-based management module and enhanced backend overviews. This gives project managers deeper insights into development speed and deadline accuracy, transforming the standard ticketing process into a better project management tool.",
+        imageUrl: somkoPicture,
+        link: "https://somko.be",
+        altText: "Somko Odoo ERP Development",
+    },
+    brittleStarRL: {
+        title: "Reinforcement Learning Research: Brittle Star Locomotion",
+        short_description:
+            "A bio-inspired robotics study using Open Evolution Strategies (OpenES) to train an ANN-controlled brittle star for efficient, decentralized locomotion in MuJoCo.",
+        description:
+            "This research explores the intersection of evolutionary biology and reinforcement learning by simulating a brittle star’s decentralized movement. Using the MuJoCo physics engine and the Evosax framework, I developed a neural network controller trained via Open Evolution Strategies (OpenES). \n\nThe project involved designing custom reward structures for both 'Origin Avoidance' and 'Target Pursuit' tasks. By implementing energy-aware fitness functions, the simulation achieved an 8% increase in movement efficiency and more naturalistic biomechanical trajectories. The system features a modular architecture, allowing for flexible morphological configurations and detailed analysis of limb coordination (in-plane vs. out-of-plane) through custom visualization and plotting tools.",
+        imageUrl: brittleStarPicture,
+        link: "/files/brittle_star_research.pdf",
+        altText: "Reinforcement Learning Brittle Star Simulation",
+    },
+    spg_emulator: {
+        title: "Low-Level Game Engine & CPU Emulator",
+        short_description: 
+            "A platform-independent game engine and 16-bit CPU emulator built in C11 and C++17, featuring a custom Entity Component System (ECS) and assembly-driven AI.",
+        description: 
+            "Developed as a systems programming project at Ghent University, this application consists of a puzzle game ('spg') powered by a custom-built hardware emulator. \n\nIn the first phase, I implemented a data-driven Entity System Framework in C11 to manage game logic, collisions, and a level editor. The second phase involved engineering a 16-bit Big-Endian CPU emulator in C++17, complete with a virtual bus, memory-mapped I/O, and a custom instruction set. This allowed 'car-brain' AI to be written in assembly and executed by the emulated CPU. The project required strict memory management, cross-platform compatibility between Ubuntu and Raspberry Pi (ARM), and bit-level data manipulation for custom binary formats.",
+        imageUrl: spgPicture,
+        link: "/files/spg_emulator.pdf",
+        altText: "C++ CPU Emulator and ECS Game Engine",
     },
     custom_enchants: {
         title: "Minecraft Plugin:⚡Custom Enchants⚡",

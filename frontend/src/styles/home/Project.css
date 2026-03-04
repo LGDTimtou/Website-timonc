@@ -182,8 +182,9 @@
     .project-image img {
         width: 100%;
         max-width: none;
-        max-height: 210px;
-        object-fit: cover;
+        height: 210px;
+        object-fit: contain;
+        background-color: var(--bg-color);
     }
 }
 
@@ -197,6 +198,6 @@
     }
 
     .project-image img {
-        max-height: 180px;
+        height: 180px;
     }
 }
