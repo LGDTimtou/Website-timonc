@@ -4,7 +4,7 @@ import profilePicture from "../assets/images/portret.jpg";
 import renoperfectPicture from "../assets/images/renoperfect.jpg";
 import customEnchantsPicture from "../assets/images/custom_enchants.png";
 import somkoPicture from "../assets/images/odoo.png";
-import brittleStarPicture from "../assets/images/brittle_star.webp";
+import brittleStarPicture from "../assets/images/brittle_star.png";
 import spgPicture from "../assets/images/spg_emulator.gif";
 import tinyMlPicture from "../assets/images/tiny_ml.gif";
 import Project from "../components/home/Project";
