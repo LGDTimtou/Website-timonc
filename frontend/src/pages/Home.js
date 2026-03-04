@@ -55,7 +55,7 @@ const Home = () => {
                         setProjectsVisible(true);
                     }
                 },
-                {threshold: 0.2}
+                {threshold: 0.05, rootMargin: "0px 0px 120px 0px"}
             );
 
             if (projectsRef.current) {

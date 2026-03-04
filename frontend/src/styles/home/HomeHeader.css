@@ -221,8 +221,8 @@ body {
         position: absolute;
         top: calc(100% + 10px);
         right: 12px;
-        width: auto;
-        min-width: 180px;
+        width: fit-content;
+        min-width: 0;
         padding: 0;
         display: none;
         background-color: var(--bg-color);
@@ -239,9 +239,9 @@ body {
     .nav-links {
         width: auto;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 0;
-        padding: 8px 14px;
+        padding: 6px 8px;
     }
 
     .nav-links li {
@@ -251,8 +251,11 @@ body {
     .nav-links a {
         display: inline-flex;
         align-items: center;
-        min-height: 44px;
+        justify-content: center;
+        min-height: 40px;
         width: auto;
+        padding: 0 4px;
+        text-align: center;
     }
 
     .github-link a {
