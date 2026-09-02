@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/home/Contact.css";
-import { FaDiscord, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaPhone, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
     return (
@@ -8,9 +8,9 @@ const Contact = () => {
             <div className="container">
                 <h2>Contact Me</h2>
                 <div className="contact-list">
-                    <a href="https://discord.com/users/361236572055797760" target="_blank" rel="noopener noreferrer" className="contact-item">
-                        <FaDiscord className="contact-icon" />
-                        <span>timtou</span>
+                    <a href="tel:+32478760103" className="contact-item" aria-label="Call Timon Coucke">
+                        <FaPhone className="contact-icon" />
+                        <span>Call me</span>
                     </a>
                     <a href="https://www.linkedin.com/in/timon-coucke-155ab61a3/" target="_blank" rel="noopener noreferrer" className="contact-item">
                         <FaLinkedin className="contact-icon" />
