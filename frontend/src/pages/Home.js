@@ -73,6 +73,7 @@ const projects = {
         imageUrl: customEnchantsPicture,
         link: "https://timonc.be/custom_enchants",
         altText: "CustomEnchants",
+        hidden: true,
     },
 };
 
@@ -164,17 +165,19 @@ const Home = () => {
                         <div className="container">
                             <h2>Projects</h2>
                             <div className="project-list">
-                                {Object.entries(projects).map(([key, project]) => (
-                                    <Project
-                                        key={key}
-                                        title={project.title}
-                                        description={project.short_description}
-                                        imageUrl={project.imageUrl}
-                                        link={project.link}
-                                        altText={project.altText}
-                                        onReadMore={() => openPopup(project)}
-                                    />
-                                ))}
+                                {Object.entries(projects)
+                                    .filter(([, project]) => !project.hidden)
+                                    .map(([key, project]) => (
+                                        <Project
+                                            key={key}
+                                            title={project.title}
+                                            description={project.short_description}
+                                            imageUrl={project.imageUrl}
+                                            link={project.link}
+                                            altText={project.altText}
+                                            onReadMore={() => openPopup(project)}
+                                        />
+                                    ))}
                             </div>
                         </div>
                     </section>

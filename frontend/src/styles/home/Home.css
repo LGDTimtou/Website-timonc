@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
 :root {
     --font-primary: 'Montserrat', sans-serif;
     --bg-color: #1A1A2E;
@@ -39,13 +39,13 @@
 }
 
 .about-text h2 {
-    color: var(--primary-color);
+    color: var(--text-color);
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
 .about-text p {
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 15px;
@@ -68,7 +68,7 @@
 
 /* Projects Section */
 .projects {
-    background: var(--background-color);
+    background: var(--bg-color);
     padding: 60px 20px;
     opacity: 0; /* Initial state for fade-in */
     transform: translateY(100px); /* Start slightly below */
@@ -81,7 +81,7 @@
 }
 
 .projects h2 {
-    color: var(--primary-color);
+    color: var(--text-color);
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 40px;
@@ -106,7 +106,7 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    background-color: var(--background-color); /* Sets the background to black */
+    background-color: var(--bg-color); /* Solid backdrop for the intro splash */
     display: flex; /* Centers content */
     justify-content: center;
     align-items: center;
@@ -118,7 +118,7 @@
 .intro-title-name {
     color: white; /* White text for contrast */
     font-size: 3rem; /* Large font size */
-    font-family: var(--font-family); /* Clean font */
+    font-family: var(--font-primary); /* Clean font */
     font-weight: 800;
     text-align: center;
     margin: 0;
@@ -128,7 +128,7 @@
 .intro-title-port {
     color: white; /* White text for contrast */
     font-size: 3rem; /* Large font size */
-    font-family: var(--font-family); /* Clean font */
+    font-family: var(--font-primary); /* Clean font */
     font-weight: 100;
     text-align: center;
     margin: 0;

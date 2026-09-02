@@ -3,18 +3,22 @@ import PropTypes from "prop-types";
 import "../../styles/home/Project.css";
 
 const Project = ({ title, description, imageUrl, link, altText, onReadMore }) => {
+    const paragraphs = description.split("\n").filter((line) => line.trim() !== "");
+
     return (
         <div className="project-item">
             <div className="project-text">
                 <h3>{title}</h3>
-                {description.split("\n").map((paragraph, index) => (
-                    <p key={index}>{paragraph}
-                    {(index === description.split("\n").length - 1) ? 
-                        <button className="read-more-button" onClick={onReadMore}>
-                            <span>....</span>
-                        </button> : null}
-                    </p> 
+                {paragraphs.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
                 ))}
+                <button
+                    type="button"
+                    className="read-more-button"
+                    onClick={onReadMore}
+                >
+                    Read more <span aria-hidden="true">&rarr;</span>
+                </button>
             </div>
             <div className="project-image">
                 <a href={link} target="_blank" rel="noopener noreferrer">
@@ -31,6 +35,7 @@ Project.propTypes = {
     imageUrl: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     altText: PropTypes.string.isRequired,
+    onReadMore: PropTypes.func.isRequired,
 };
 
 export default Project;

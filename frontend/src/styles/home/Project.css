@@ -62,74 +62,39 @@
 }
 
 .read-more-button {
+    margin-top: 14px;
+    padding: 8px 16px;
     background-color: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: bold;
+    border: 1px solid var(--accent-color);
     border-radius: 50px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 15px;
-    transition: all 0.3s ease;
-    margin-left: 5px;
-    vertical-align: middle;
-    position: relative
+    gap: 6px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Move the text inside the button */
 .read-more-button span {
-    position: relative;
-    top: -4px; /* Adjust this value to move the text up or down */
+    transition: transform 0.2s ease;
 }
 
-/* Tooltip text */
-.read-more-button::after {
-    content: "Read more";
-    position: absolute;
-    top: -35px; /* Adjusts vertical position above the button */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    pointer-events: none; /* Prevents tooltip from interfering with hover */
-}
-
-/* Tooltip arrow */
-.read-more-button::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 5px;
-    border-style: solid;
-    border-color: #333 transparent transparent transparent;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Show the tooltip on hover */
-.read-more-button:hover::after,
-.read-more-button:hover::before {
-    opacity: 1;
-    visibility: visible;
-}
 .read-more-button:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
-    color: #ffffff;
-    border-color: #ff7a59; /* Optional: Add hover color to match your theme */
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: var(--link-color);
+}
+
+.read-more-button:hover span {
+    transform: translateX(3px);
+}
+
+.read-more-button:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
 }
 
 @media (max-width: 992px) {
