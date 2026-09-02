@@ -87,7 +87,7 @@ const Home = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsIntroVisible(false);
-        }, 2300);
+        }, 1800);
 
         return () => clearTimeout(timer);
     }, []);
