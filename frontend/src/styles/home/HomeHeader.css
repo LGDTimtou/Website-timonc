@@ -89,6 +89,20 @@ body {
     opacity: 0.8; /* Slightly muted */
 }
 
+.tagline a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(234, 234, 234, 0.4);
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.tagline a:hover {
+    color: var(--link-color);
+    text-decoration-color: var(--link-color);
+}
+
 .tagline-line {
     display: inline;
 }
