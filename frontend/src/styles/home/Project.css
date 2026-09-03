@@ -1,144 +1,172 @@
 .project-item {
     display: flex;
-    flex-direction: row; /* Side-by-side layout for text and image */
-    gap: 20px; /* Space between text and image */
-    align-items: center; /* Align content vertically */
-    background-color: var(--bg-color); /* Use the background color */
-    border: 1px solid var(--accent-color); /* Use accent color for the border */
-    border-radius: 15px; /* Rounded corners for a modern look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-    padding: 20px; /* Space inside the bounding box */
-    margin-bottom: 20px; /* Space between each project */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth hover animation */
-    color: var(--text-color); /* Use the soft white text color */
+    flex-direction: row;
+    gap: 36px;
+    align-items: center;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px;
+    color: var(--text-color);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-item:hover {
-    transform: translateY(-3px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Slightly stronger shadow on hover */
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-md);
 }
 
 .project-item:nth-child(odd) .project-image {
-    order: -1; /* Reverse order for odd projects */
+    order: -1;
 }
 
 .project-text {
-    flex: 1.2;
+    flex: 1.1;
     text-align: left;
 }
 
 .project-text h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    color: var(--text-color);
 }
 
 .project-text p {
-    color: var(--text-color); /* Use soft white for body text */
-    font-size: 1rem;
-    line-height: 1.6;
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin: 0 0 10px;
+}
+
+.tech-list {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.tech-tag-icon {
+    font-size: 0.95rem;
+    color: var(--accent-color);
 }
 
 .project-image {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 20px;
-    cursor: pointer;
+}
+
+.project-image a {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
 }
 
 .project-image img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    max-width: 300px;
-    max-height: 200px;
-    height: auto;
-    border-radius: 10px; /* Add slight rounding for aesthetics */
-    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
 }
 
-.project-image img:hover {
-    transform: scale(1.05); /* Gentle zoom effect */
-    border-color: var(--accent-color); /* Highlight image border with accent color on hover */
+.project-image a:hover img {
+    transform: scale(1.04);
+}
+
+/* Logos / wide artwork: show the whole image instead of cropping it */
+.project-image--contain-light a {
+    background-color: #ffffff;
+}
+
+.project-image--contain-dark a {
+    background-color: #12141b;
+}
+
+.project-image--contain-light img,
+.project-image--contain-dark img {
+    object-fit: contain;
+    padding: 22px;
+}
+
+.project-image--contain-light a:hover img,
+.project-image--contain-dark a:hover img {
+    transform: scale(1.03);
 }
 
 .read-more-button {
+    margin-top: 14px;
+    padding: 8px 16px;
     background-color: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: bold;
+    border: 1px solid var(--border-color);
     border-radius: 50px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 15px;
-    transition: all 0.3s ease;
-    margin-left: 5px;
-    vertical-align: middle;
-    position: relative
+    gap: 6px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-/* Move the text inside the button */
 .read-more-button span {
-    position: relative;
-    top: -4px; /* Adjust this value to move the text up or down */
+    transition: transform 0.2s ease;
 }
 
-/* Tooltip text */
-.read-more-button::after {
-    content: "Read more";
-    position: absolute;
-    top: -35px; /* Adjusts vertical position above the button */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    pointer-events: none; /* Prevents tooltip from interfering with hover */
-}
-
-/* Tooltip arrow */
-.read-more-button::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 5px;
-    border-style: solid;
-    border-color: #333 transparent transparent transparent;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Show the tooltip on hover */
-.read-more-button:hover::after,
-.read-more-button:hover::before {
-    opacity: 1;
-    visibility: visible;
-}
 .read-more-button:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
-    color: #ffffff;
-    border-color: #ff7a59; /* Optional: Add hover color to match your theme */
+    background-color: var(--surface-hover);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.read-more-button:hover span {
+    transform: translateX(3px);
+}
+
+.read-more-button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 @media (max-width: 992px) {
     .project-item {
-        gap: 16px;
+        gap: 24px;
+        padding: 24px;
     }
 
     .project-text h3 {
-        font-size: 1.55rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -146,8 +174,8 @@
     .project-item {
         flex-direction: column;
         align-items: stretch;
-        padding: 16px;
-        gap: 14px;
+        padding: 20px;
+        gap: 18px;
     }
 
     .project-item:nth-child(odd) .project-image {
@@ -159,45 +187,31 @@
     }
 
     .project-text h3 {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
         line-height: 1.35;
     }
 
     .project-text p {
         font-size: 0.95rem;
-        line-height: 1.55;
+        line-height: 1.6;
     }
 
     .project-image {
         width: 100%;
-        margin-top: 0;
-        align-items: center;
     }
 
     .project-image a {
-        display: block;
-        width: 100%;
-    }
-
-    .project-image img {
-        width: 100%;
         max-width: none;
-        height: 210px;
-        object-fit: contain;
-        background-color: var(--bg-color);
     }
 }
 
 @media (max-width: 480px) {
     .project-item {
-        padding: 14px;
+        padding: 16px;
+        border-radius: 14px;
     }
 
     .project-text h3 {
-        font-size: 1.2rem;
-    }
-
-    .project-image img {
-        height: 180px;
+        font-size: 1.15rem;
     }
 }

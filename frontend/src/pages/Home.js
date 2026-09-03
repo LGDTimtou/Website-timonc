@@ -4,6 +4,8 @@ import profilePicture from "../assets/images/portret.jpg";
 import renoperfectPicture from "../assets/images/renoperfect.jpg";
 import customEnchantsPicture from "../assets/images/custom_enchants.png";
 import somkoPicture from "../assets/images/odoo.png";
+import solidcurePicture from "../assets/images/solidcure.png";
+import thesisPicture from "../assets/images/thesis.gif";
 import brittleStarPicture from "../assets/images/brittle_star.png";
 import spgPicture from "../assets/images/spg_emulator.gif";
 import tinyMlPicture from "../assets/images/tiny_ml.gif";
@@ -14,55 +16,84 @@ import ProjectPopup from "../components/home/ProjectPopup";
 import Contact from "../components/home/Contact";
 
 const projects = {
-    renoperfect: {
-        title: "Full Stack Application: RenoPerfect",
+    solidcure: {
+        title: "SolidCure — Cable Accessory Configurator",
         short_description:
-            "Allows employees to access their daily assigned projects, view essential details, log work hours, upload progress photos... \nAll data automatically gets synced with the company’s database and Dropbox.",
+            "A tool I built to pick the right medium-voltage cable accessory for a customer's cable. You enter the cable's model and a few parameters; it looks up the matching datasheet, reads out all the values, and works out which Nexans connector, termination or cable joint fits. Before, this meant searching through Excel files by hand.",
         description:
-            "Its a custom-built full-stack web application designed to optimize project management for RenoPerfect, a construction company. The platform connects the company’s database with an API, allowing employees to easily access their daily project assignments, review key information (such as required materials, images, and mandates), and log their work hours and used materials. \n\nAt the end of each workday, employees can upload photos of their completed work, which are automatically stored in the company’s Dropbox, ensuring organized and secure documentation. Additionally, via web scraping it extracts relevant work orders from insurance companies, integrating them directly into the database—eliminating the need for manual input.",
+            "When a customer sends a medium-voltage cable and asks which accessory fits it, a connector, termination or cable joint, someone used to search through Excel files by hand to find the cable, read off its parameters, and match it to the right Nexans part. It was slow and easy to get wrong.\n\nI built a tool that does the whole thing. You enter the cable's model and a few parameters; it finds the exact table for that cable, reads out its full set of parameters and its datasheet, and works out which Nexans accessory matches.\n\nThe result is a fast, hard-to-get-wrong way to land on the correct part, instead of a manual lookup that took time and often produced mistakes.",
+        imageUrl: solidcurePicture,
+        link: "https://solidcure.com",
+        altText: "SolidCure medium-voltage cable accessory configurator",
+        imageFit: "contain-dark",
+        tech: ["Python", "Web Scraping"],
+    },
+    renoperfect: {
+        title: "RenoPerfect — Full-Stack Web App",
+        short_description:
+            "A full-stack web app I built for a construction company. Workers use it to see the jobs assigned to them each day, log their hours and materials, and upload photos from site. Everything syncs to the company's database and Dropbox.",
+        description:
+            "RenoPerfect is a construction company that was managing its daily work with paperwork and phone calls. I built a web app to replace that.\n\nEmployees log in to see the jobs assigned to them for the day, along with the materials, reference images and mandates for each one. They record their worked hours and used materials directly in the app, and upload photos of finished work at the end of the day. Those photos are saved to the company's Dropbox, sorted per project.\n\nThe app also runs a scraper that reads incoming work orders from insurance companies and adds them to the database automatically, so nobody has to type them in.",
         imageUrl: renoperfectPicture,
         link: "https://renoperfect.be",
-        altText: "RenoPerfect",
+        altText: "RenoPerfect field operations platform",
+        tech: ["Django", "React", "Web Scraping", "Dropbox"],
+    },
+    gaussianSplatting: {
+        title: "Master's Thesis: Edge-Guided Initialization for 3D Gaussian Splatting",
+        short_description:
+            "My Master's thesis, on the initialization step of 3D Gaussian Splatting, a real-time technique that represents a scene as a large set of small 3D Gaussians. Instead of seeding those Gaussians from a sparse point cloud, I place them with an edge-guided partition of each frame, so there are more where the scene has detail and fewer where it is flat. That gives the optimization a better starting point: it converges faster and reaches comparable or better quality with fewer Gaussians.",
+        description:
+            "3D Gaussian Splatting represents a scene as a large collection of small 3D Gaussians that are optimised until images rendered from them match a set of input photos. It renders in real time, which is what makes it useful, but the optimisation needs a starting set of Gaussians to work from. Standard 3DGS gets this from a sparse point cloud, either built from the photos with Structure-from-Motion or taken directly from LiDAR. That point cloud is unreliable in low-texture or awkwardly lit regions, and either way it is sparse and says little about where the scene is visually or geometrically complex. A better starting point doesn't change the final quality once everything has fully converged, but it strongly affects how quickly that happens and how good the result is when the number of Gaussians is capped — and regions the initialisation misses entirely are hard to recover later.\n\nMy thesis builds a denser, structure-aware initialisation that still runs online, one frame at a time. For each frame I complete the sparse LiDAR into a dense depth map, run edge detection on both the colour image and the depth, and combine the two into a single edge map. That edge map drives a hierarchical partition of the frame into a tree of rectangular regions: it keeps subdividing where there are edges and stops where a region is flat, so cells come out small in detailed areas and large in uniform ones. Each remaining cell becomes one Gaussian, with its position and size derived from the cell, the completed depth and the camera parameters. A coverage check skips regions that Gaussians from earlier frames already cover, so the same surface isn't seeded twice. None of this changes the optimiser itself.\n\nMeasured against Gaussian-LIC2, a state-of-the-art LiDAR-based baseline, the initial placement on its own scores better on image-quality metrics while using fewer Gaussians, and during optimisation it converges noticeably faster in the early iterations. Given enough time both approaches reach a similar final quality, but mine gets there sooner and with a smaller Gaussian budget. Splitting the regions with a KD-tree rather than a quadtree made better use of that budget. The partition doesn't actually depend on LiDAR: the LiDAR depth mainly adds robustness in low-texture areas, and the same method works in a purely RGB pipeline.\n\nThe implementation is open-source: https://github.com/LGDTimtou/gaussian-lic-research",
+        imageUrl: thesisPicture,
+        link: "/files/gaussian_splatting_thesis.pdf",
+        altText: "Edge-guided hierarchical initialization for 3D Gaussian Splatting",
+        tech: ["Python", "C++", "3D Gaussian Splatting", "LiDAR", "CUDA"],
     },
     somko: {
-        title: "Odoo ERP: Internship Somko",
+        title: "Odoo ERP Internship — Somko",
         short_description:
-            "Upgraded Somko’s internal Odoo ERP by developing a custom client portal for ticket management and a backend sprint system for project managers.",
+            "My internship project: a custom extension for Somko's Odoo ERP. It adds a portal where clients can open and follow up on support tickets, plus a sprint-planning module and dashboards for the project managers.",
         description:
-            "Developed a custom extension for the Odoo ERP system to bridge the communication gap between clients and project managers. I designed and implemented a dedicated client platform that allows users to create tickets with specific parameters and interact via a chat system.\n\nI developed a sprint-based management module and enhanced backend overviews. This gives project managers deeper insights into development speed and deadline accuracy, transforming the standard ticketing process into a better project management tool.",
+            "This was my internship project at Somko. They use Odoo as their ERP, and I built a custom extension for it.\n\nThe main part is a client portal: customers can open support tickets with structured fields and follow up through a chat, instead of sending loose emails. On the internal side, I added a module for planning work in sprints and some extra dashboards, so project managers can see how fast work is moving and whether deadlines are being met.",
         imageUrl: somkoPicture,
         link: "https://somko.be",
-        altText: "Somko Odoo ERP Development",
+        altText: "Somko Odoo ERP client portal",
+        tech: ["Odoo", "Python", "ERP"],
+        imageFit: "contain-light",
     },
     spg_emulator: {
-        title: "Low-Level Game Engine & CPU Emulator",
-        short_description: 
-            "A platform-independent game engine and 16-bit CPU emulator built in C11 and C++17, featuring a custom Entity Component System (ECS) and assembly-driven AI.",
-        description: 
-            "Developed as a systems programming project at Ghent University, this application consists of a puzzle game ('spg') powered by a custom-built hardware emulator. \n\nIn the first phase, I implemented a data-driven Entity System Framework in C11 to manage game logic, collisions, and a level editor. The second phase involved engineering a 16-bit Big-Endian CPU emulator in C++17, complete with a virtual bus, memory-mapped I/O, and a custom instruction set. This allowed 'car-brain' AI to be written in assembly and executed by the emulated CPU. The project required strict memory management, cross-platform compatibility between Ubuntu and Raspberry Pi (ARM), and bit-level data manipulation for custom binary formats.",
+        title: "Game Engine & 16-bit CPU Emulator",
+        short_description:
+            "A university project with two parts: a small puzzle game with its own engine, and a 16-bit CPU emulator I wrote from scratch. Game objects use a custom entity-component system, and the in-game AI runs as assembly code on the emulated CPU.",
+        description:
+            "This was a systems-programming project at Ghent University, split into two parts.\n\nThe first part is a game engine built around a data-driven entity-component system in C11. It handles game logic, collision detection and a level editor for a small puzzle game.\n\nThe second part is a 16-bit big-endian CPU emulator written in C++17, with a virtual bus, memory-mapped I/O and its own instruction set. The vehicle AI in the game is written in assembly and executed by this emulated CPU. Most of the work went into manual memory management, reading and writing custom binary formats at the bit level, and keeping everything running on both Ubuntu and a Raspberry Pi.",
         imageUrl: spgPicture,
         link: "/files/spg_emulator.pdf",
-        altText: "C++ CPU Emulator and ECS Game Engine",
+        altText: "C++ CPU emulator and ECS game engine",
+        tech: ["C", "C++", "ECS", "Assembly"],
     },
     tiny_ml: {
-        title: "TinyML: Low-Power Person Detection",
+        title: "TinyML: On-Device Person Detection for Drones",
         short_description:
-            "Developed a lightweight, real-time person detection system for UAVs using optimized TinyML models to enhance search and rescue operational time.",
+            "A person-detection model that runs on a drone's own hardware instead of streaming video to a server, which saves power on search-and-rescue flights. We compared several models and used quantization to shrink the chosen one by up to 75%.",
         description:
-            "This project addresses the energy constraints of search and rescue (SAR) drones by deploying on-device inference to eliminate the need for power-hungry live video streaming. \n\nWe evaluated several state-of-the-art models (YOLO, FOMO, MobileNet-SSD, and EfficientDet), ultimately selecting and fine-tuning YOLO11n for its great balance of accuracy and latency. \n\nUsing TensorFlow Lite, we implemented post-training quantization (int8 and float16) to reduce model size by up to 75% while maintaining high detection precision. The system was benchmarked on Raspberry Pi 5 hardware, simulating a solar-powered UAV environment where we analyzed the trade-offs between CPU thermal output, energy consumption, and real-time inference speed.",
+            "Search-and-rescue drones spend a lot of their battery streaming live video back to an operator. The idea here was to run the detection on the drone itself, so it only needs to send something when it actually spots a person.\n\nWe tested several detection models (YOLO, FOMO, MobileNet-SSD, EfficientDet) and picked YOLO11n for its balance of accuracy and speed. Using TensorFlow Lite, we applied post-training quantization (int8 and float16), which reduced the model size by up to 75% with only a small drop in accuracy.\n\nWe ran the benchmarks on a Raspberry Pi 5 as a stand-in for a solar-powered drone, and looked at how CPU temperature, power draw and inference speed trade off against each other.",
         imageUrl: tinyMlPicture,
-        link: "/files/tiny_ml_project.pdf", 
-        altText: "UAV Person Detection on Edge Hardware",
+        link: "/files/tiny_ml_project.pdf",
+        altText: "On-device person detection on drone hardware",
+        tech: ["Python", "TensorFlow Lite", "YOLO11n", "Raspberry Pi 5"],
     },
     brittleStarRL: {
-        title: "Reinforcement Learning Research: Brittle Star Locomotion",
+        title: "Reinforcement Learning: Brittle-Star Locomotion",
         short_description:
-            "A bio-inspired robotics study using Open Evolution Strategies (OpenES) to train an ANN-controlled brittle star for efficient, decentralized locomotion in MuJoCo.",
+            "A research project where a simulated brittle star learns to move using evolutionary reinforcement learning, rather than hand-written control. Adding an energy cost to the reward made its movement about 8% more efficient and more natural-looking.",
         description:
-            "This research explores the intersection of evolutionary biology and reinforcement learning by simulating a brittle star’s decentralized movement. Using the MuJoCo physics engine and the Evosax framework, I developed a neural network controller trained via Open Evolution Strategies (OpenES). \n\nThe project involved designing custom reward structures for both 'Origin Avoidance' and 'Target Pursuit' tasks. By implementing energy-aware fitness functions, the simulation achieved an 8% increase in movement efficiency and more naturalistic biomechanical trajectories. The system features a modular architecture, allowing for flexible morphological configurations and detailed analysis of limb coordination (in-plane vs. out-of-plane) through custom visualization and plotting tools.",
+            "A brittle star moves its arms without a central brain coordinating them. This project looked at whether that kind of decentralized movement can be learned instead of programmed by hand.\n\nI used the MuJoCo physics engine and the Evosax library to train a neural-network controller with Open Evolution Strategies. I set up two tasks, \"Origin Avoidance\" and \"Target Pursuit\", and added an energy term to the reward function. That made the learned movement about 8% more efficient and closer to how a real brittle star moves.\n\nThe setup is modular, so different body shapes can be tried, and it includes tools for plotting how the arms coordinate (in-plane versus out-of-plane movement).",
         imageUrl: brittleStarPicture,
         link: "/files/brittle_star_research.pdf",
-        altText: "Reinforcement Learning Brittle Star Simulation",
+        altText: "Reinforcement learning brittle star simulation",
+        tech: ["Python", "JAX", "MuJoCo", "Evosax"],
     },
     custom_enchants: {
         title: "Minecraft Plugin:⚡Custom Enchants⚡",
@@ -73,6 +104,7 @@ const projects = {
         imageUrl: customEnchantsPicture,
         link: "https://timonc.be/custom_enchants",
         altText: "CustomEnchants",
+        hidden: true,
     },
 };
 
@@ -86,7 +118,7 @@ const Home = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsIntroVisible(false);
-        }, 2300);
+        }, 1800);
 
         return () => clearTimeout(timer);
     }, []);
@@ -131,21 +163,40 @@ const Home = () => {
             {!isIntroVisible && (
                 <div className="homepage">
                     <Header/>
+                    <section className="hero">
+                        <div className="hero-inner">
+                            <p className="hero-eyebrow">Software Developer &middot; Ghent, Belgium</p>
+                            <h1 className="hero-title">
+                                I build software that automates the busywork.
+                            </h1>
+                            <p className="hero-subtitle">
+                                Backend Engineer at Lighthouse in Ghent, and a Master of Computer
+                                Science &amp; Engineering from Ghent University &mdash; building software
+                                that turns manual processes into reliable tools.
+                            </p>
+                            <div className="hero-actions">
+                                <a href="#projects" className="hero-btn hero-btn-primary">View my work</a>
+                                <a href="#contact" className="hero-btn hero-btn-ghost">Get in touch</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div className="divider"></div>
+
                     <section id="about" className="about">
                         <div className="about-container">
                             <div className="about-text">
                                 <h2>About Me</h2>
                                 <p>
-                                    Hello! I'm <strong>Timon Coucke</strong>, a graduating Master of Computer Science and Engineering
-                                    student at <strong>Ghent University</strong> and a freelance software engineer.
+                                    Hello! I'm <strong>Timon Coucke</strong>, a <strong>Backend Engineer at Lighthouse</strong> in
+                                    Ghent. I have a <strong>Master's degree in Computer Science and Engineering</strong> from <strong>Ghent University</strong>.
                                 </p>
                                 <p>
-                                    I'm passionate about automating and optimizing processes. By building custom software and integrating the right tools, I help companies operate more efficiently and save time.
+                                    I'm passionate about automating and optimizing processes. By building custom software and integrating the right tools, I help teams operate more efficiently and save time.
                                 </p>
                                 <p>
-                                    In my free time, I love modding for a
-                                    variety of games, combining my technical skills with
-                                    creativity.
+                                    In my free time I like to try out new frameworks, libraries,
+                                    languages and AI tools, and work on smaller side projects.
                                 </p>
                             </div>
                             <div className="about-image">
@@ -164,17 +215,21 @@ const Home = () => {
                         <div className="container">
                             <h2>Projects</h2>
                             <div className="project-list">
-                                {Object.entries(projects).map(([key, project]) => (
-                                    <Project
-                                        key={key}
-                                        title={project.title}
-                                        description={project.short_description}
-                                        imageUrl={project.imageUrl}
-                                        link={project.link}
-                                        altText={project.altText}
-                                        onReadMore={() => openPopup(project)}
-                                    />
-                                ))}
+                                {Object.entries(projects)
+                                    .filter(([, project]) => !project.hidden)
+                                    .map(([key, project]) => (
+                                        <Project
+                                            key={key}
+                                            title={project.title}
+                                            description={project.short_description}
+                                            imageUrl={project.imageUrl}
+                                            link={project.link}
+                                            altText={project.altText}
+                                            tech={project.tech}
+                                            imageFit={project.imageFit}
+                                            onReadMore={() => openPopup(project)}
+                                        />
+                                    ))}
                             </div>
                         </div>
                     </section>

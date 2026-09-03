@@ -1,104 +1,222 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
+
 :root {
     --font-primary: 'Montserrat', sans-serif;
-    --bg-color: #1A1A2E;
-    --text-color: #EAEAEA;
-    --accent-color: #008080;
-    --link-color: #4FFBF1;
-    --hover-color: #533483;
-  }
+
+    /* Surfaces */
+    --bg-color: #0F1117;
+    --surface-color: #171A21;
+    --surface-hover: #1D212B;
+    --border-color: #2A2F3A;
+
+    /* Text */
+    --text-color: #E7E9ED;
+    --text-muted: #9BA3B2;
+
+    /* Accent (single, used consistently for links / interactive) */
+    --accent-color: #2DD4BF;
+    --accent-strong: #14B8A6;
+
+    /* Legacy aliases kept so older rules keep resolving */
+    --link-color: var(--accent-color);
+    --hover-color: var(--accent-color);
+
+    /* Layout */
+    --section-max: 1120px;
+    --section-pad-y: 88px;
+    --section-pad-x: 24px;
+
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.homepage,
+.homepage *,
+.homepage *::before,
+.homepage *::after {
+    box-sizing: border-box;
+}
 
 .divider {
-    width: 90%; /* Full-width */
-    height: 2px; /* 2px thickness */
-    background-color: var(--accent-color); /* Replace with your desired color */
-    margin: auto; /* Space around the line */
-    margin-top: 20px;
+    width: min(90%, var(--section-max));
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 0 auto;
+    border: 0;
+}
+
+/* Hero Section */
+.hero {
+    padding: 96px var(--section-pad-x) 84px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-inner {
+    width: 100%;
+    max-width: var(--section-max);
+}
+
+.hero-eyebrow {
+    margin: 0 0 18px;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    margin: 0;
+    max-width: 20ch;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text-color);
+}
+
+.hero-subtitle {
+    margin: 22px 0 0;
+    max-width: 58ch;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+}
+
+.hero-btn-primary {
+    background-color: var(--accent-color);
+    color: #0F1117;
+}
+
+.hero-btn-primary:hover {
+    background-color: var(--accent-strong);
+}
+
+.hero-btn-ghost {
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.hero-btn-ghost:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 /* About Section */
 .about {
-    padding: 20px 20px;
-    display: flex; /* Flex container for the section */
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    padding: var(--section-pad-y) var(--section-pad-x);
+    display: flex;
+    justify-content: center;
 }
 
 .about-container {
     display: flex;
-    flex-direction: row; /* Place text and image side-by-side */
-    align-items: center; /* Align items vertically */
-    max-width: 1200px; /* Set a maximum width for the section */
-    gap: 30px; /* Space between text and image */
+    flex-direction: row;
+    align-items: center;
+    max-width: var(--section-max);
+    gap: 56px;
     width: 100%;
 }
 
 .about-text {
-    flex: 1; /* Allow the text section to take up remaining space */
-    text-align: left; /* Align text to the left */
+    flex: 1;
+    text-align: left;
 }
 
 .about-text h2 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
 }
 
 .about-text p {
-    color: var(--text-dark);
+    color: var(--text-muted);
     font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 15px;
+    line-height: 1.75;
+    margin: 0 0 14px;
+}
+
+.about-text p strong {
+    color: var(--text-color);
+    font-weight: 600;
 }
 
 .about-image {
-    flex: 1; /* Allow the image section to take up remaining space */
+    flex: 1;
     display: flex;
-    justify-content: center; /* Center the image */
-    align-items: flex-start; /* Align image to the top initially */
-    margin-top: 60px; /* Add spacing above the image */
+    justify-content: center;
 }
 
 .about-image img {
-    width: 350px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Make the image circular */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    width: 320px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
 }
 
 /* Projects Section */
 .projects {
-    background: var(--background-color);
-    padding: 60px 20px;
-    opacity: 0; /* Initial state for fade-in */
-    transform: translateY(100px); /* Start slightly below */
-    transition: opacity 2s ease-out, transform 2s ease-out; /* Smooth fade-in animation */
+    background: var(--bg-color);
+    padding: var(--section-pad-y) var(--section-pad-x);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .projects.fade-in {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Reset to default position */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .projects h2 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     text-align: center;
-    margin-bottom: 40px;
-    margin-top: 0px;
+    margin: 0 0 48px;
 }
 
 .project-list {
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Space between project items */
-    max-width: 1200px;
+    gap: 28px;
+    max-width: var(--section-max);
     margin: 0 auto;
 }
 
 /* Intro Screen Styles */
 .intro-screen {
-    position: fixed; /* Ensures the screen covers the entire viewport */
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -106,33 +224,35 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    background-color: var(--background-color); /* Sets the background to black */
-    display: flex; /* Centers content */
+    background-color: var(--bg-color);
+    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensures it appears above other content */
-    animation: fadeOut 0.5s 2s forwards;
+    z-index: 1000;
+    animation: fadeOut 0.4s 1.4s forwards;
     gap: 2rem;
 }
 
 .intro-title-name {
-    color: white; /* White text for contrast */
-    font-size: 3rem; /* Large font size */
-    font-family: var(--font-family); /* Clean font */
-    font-weight: 800;
+    color: var(--text-color);
+    font-size: 3rem;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     text-align: center;
     margin: 0;
-    animation: fadeOut 1.5s 0.7s forwards;
+    animation: fadeOut 0.8s 0.5s forwards;
 }
 
 .intro-title-port {
-    color: white; /* White text for contrast */
-    font-size: 3rem; /* Large font size */
-    font-family: var(--font-family); /* Clean font */
-    font-weight: 100;
+    color: var(--text-color);
+    font-size: 3rem;
+    font-family: var(--font-primary);
+    font-weight: 200;
+    letter-spacing: 0.01em;
     text-align: center;
     margin: 0;
-    animation: fadeOut 1.5s 1s forwards;
+    animation: fadeOut 0.8s 0.75s forwards;
 }
 
 /* Fade-Out Animation */
@@ -157,42 +277,51 @@
 }
 
 .homepage {
-    animation: fadeIn 1.5s ease-in;
+    animation: fadeIn 0.8s ease-in;
 }
 
 @media (max-width: 992px) {
-    .divider {
-        margin-top: 40px;
+    :root {
+        --section-pad-y: 72px;
     }
 
     .about-container {
-        gap: 20px;
+        gap: 36px;
     }
 
     .about-text h2,
     .projects h2,
     .contact h2 {
-        font-size: 2.1rem;
-    }
-
-    .about-image {
-        margin-top: 20px;
+        font-size: 1.9rem;
     }
 
     .about-image img {
-        width: 300px;
+        width: 280px;
     }
 }
 
 @media (max-width: 768px) {
-    .about {
-        padding: 12px 16px;
+    :root {
+        --section-pad-y: 56px;
+        --section-pad-x: 20px;
+    }
+
+    .hero {
+        padding: 64px var(--section-pad-x) 52px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-actions {
+        margin-top: 28px;
     }
 
     .about-container {
         flex-direction: column-reverse;
         align-items: center;
-        gap: 18px;
+        gap: 28px;
     }
 
     .about-text {
@@ -202,30 +331,21 @@
     .about-text h2,
     .projects h2,
     .contact h2 {
-        font-size: 1.95rem;
+        font-size: 1.7rem;
         margin-bottom: 18px;
     }
 
     .about-text p {
         font-size: 0.98rem;
-        line-height: 1.65;
+        line-height: 1.7;
     }
 
-    .about-image {
-        margin-top: 0;
-        align-items: center;
-    }
-
-    .about-image img {
-        width: 220px;
-    }
-
-    .projects {
-        padding: 40px 16px;
+    .projects h2 {
+        margin-bottom: 32px;
     }
 
     .project-list {
-        gap: 22px;
+        gap: 20px;
     }
 
     .intro-screen {
@@ -241,19 +361,18 @@
 }
 
 @media (max-width: 480px) {
-    .divider {
-        width: calc(100% - 32px);
-        margin-top: 30px;
-    }
-
     .about-text h2,
     .projects h2,
     .contact h2 {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
+    }
+
+    .hero-btn {
+        flex: 1 1 auto;
     }
 
     .about-image img {
-        width: 180px;
+        width: 200px;
     }
 
     .intro-title-name,
