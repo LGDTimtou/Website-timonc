@@ -139,7 +139,7 @@ const Home = () => {
                     <Header/>
                     <section className="hero">
                         <div className="hero-inner">
-                            <p className="hero-eyebrow">Backend Engineer &middot; Ghent, Belgium</p>
+                            <p className="hero-eyebrow">Software Developer &middot; Ghent, Belgium</p>
                             <h1 className="hero-title">
                                 I build software that automates the busywork.
                             </h1>
