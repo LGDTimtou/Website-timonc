@@ -94,7 +94,6 @@
 
 /* Additional styling for better readability */
 .popup-description {
-  white-space: pre-line; /* Preserves line breaks */
   color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.65;
@@ -102,6 +101,34 @@
   background: rgba(255, 255, 255, 0.04);
   border-radius: 10px;
   text-align: left;
+}
+
+.popup-description p {
+  margin: 0 0 10px;
+}
+
+.popup-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Inline text link inside the description (overrides the button-style
+   .popup-content a used for "Visit Project"). */
+.popup-content .popup-description a.popup-inline-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  font-weight: 600;
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+
+.popup-content .popup-description a.popup-inline-link:hover {
+  background: none;
+  color: var(--accent-strong);
 }
 
 .popup-content::-webkit-scrollbar,
