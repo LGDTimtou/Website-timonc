@@ -15,58 +15,59 @@ import Contact from "../components/home/Contact";
 
 const projects = {
     renoperfect: {
-        title: "Full Stack Application: RenoPerfect",
+        title: "RenoPerfect — Full-Stack Field Platform",
         short_description:
-            "Allows employees to access their daily assigned projects, view essential details, log work hours, upload progress photos... \nAll data automatically gets synced with the company’s database and Dropbox.",
+            "A full-stack platform that runs the daily operations of a construction company. Crews pull up their assignments, log hours and materials, and upload progress photos from the job site — all synced straight into the company database and Dropbox.",
         description:
-            "Its a custom-built full-stack web application designed to optimize project management for RenoPerfect, a construction company. The platform connects the company’s database with an API, allowing employees to easily access their daily project assignments, review key information (such as required materials, images, and mandates), and log their work hours and used materials. \n\nAt the end of each workday, employees can upload photos of their completed work, which are automatically stored in the company’s Dropbox, ensuring organized and secure documentation. Additionally, via web scraping it extracts relevant work orders from insurance companies, integrating them directly into the database—eliminating the need for manual input.",
+            "RenoPerfect replaced the paperwork and phone calls a growing construction company was running on. Through an API tied to the company database, employees open their daily assignments with everything they need in one place — required materials, reference images, and mandates — and log their worked hours and used materials on the spot.\n\nAt the end of each day, progress photos uploaded from the field land automatically in the company's Dropbox, organized per project. A web-scraping pipeline also pulls work orders from insurance companies straight into the database, removing an entire category of manual data entry.",
         imageUrl: renoperfectPicture,
         link: "https://renoperfect.be",
-        altText: "RenoPerfect",
+        altText: "RenoPerfect field operations platform",
         tech: ["Full-Stack", "REST API", "Web Scraping", "Dropbox"],
     },
     somko: {
-        title: "Odoo ERP: Internship Somko",
+        title: "Odoo ERP Internship — Somko",
         short_description:
-            "Upgraded Somko’s internal Odoo ERP by developing a custom client portal for ticket management and a backend sprint system for project managers.",
+            "Extended Somko's Odoo ERP with a client-facing portal for support tickets and a sprint-planning module for project managers — turning a plain ticket list into a real project-management workflow.",
         description:
-            "Developed a custom extension for the Odoo ERP system to bridge the communication gap between clients and project managers. I designed and implemented a dedicated client platform that allows users to create tickets with specific parameters and interact via a chat system.\n\nI developed a sprint-based management module and enhanced backend overviews. This gives project managers deeper insights into development speed and deadline accuracy, transforming the standard ticketing process into a better project management tool.",
+            "During my internship at Somko I built a custom Odoo extension to close the gap between clients and the project managers delivering their work. Clients got a dedicated portal where they raise tickets with structured details and follow up through a built-in chat, instead of scattered emails.\n\nOn the internal side, I added a sprint-based planning module and richer management dashboards, giving project managers a clear read on delivery speed and how reliably deadlines are being met.",
         imageUrl: somkoPicture,
         link: "https://somko.be",
-        altText: "Somko Odoo ERP Development",
+        altText: "Somko Odoo ERP client portal",
         tech: ["Odoo", "Python", "ERP"],
+        imageContain: true,
     },
     spg_emulator: {
-        title: "Low-Level Game Engine & CPU Emulator",
-        short_description: 
-            "A platform-independent game engine and 16-bit CPU emulator built in C11 and C++17, featuring a custom Entity Component System (ECS) and assembly-driven AI.",
-        description: 
-            "Developed as a systems programming project at Ghent University, this application consists of a puzzle game ('spg') powered by a custom-built hardware emulator. \n\nIn the first phase, I implemented a data-driven Entity System Framework in C11 to manage game logic, collisions, and a level editor. The second phase involved engineering a 16-bit Big-Endian CPU emulator in C++17, complete with a virtual bus, memory-mapped I/O, and a custom instruction set. This allowed 'car-brain' AI to be written in assembly and executed by the emulated CPU. The project required strict memory management, cross-platform compatibility between Ubuntu and Raspberry Pi (ARM), and bit-level data manipulation for custom binary formats.",
+        title: "Game Engine & 16-bit CPU Emulator",
+        short_description:
+            "A platform-independent game engine paired with a from-scratch 16-bit CPU emulator, written in C11 and C++17. Game objects run on a custom Entity Component System, and the in-game AI is real assembly executed by the emulated processor.",
+        description:
+            "Built as a systems-programming project at Ghent University, this is a puzzle game running on top of a hardware emulator I designed myself. The first half is a data-driven Entity Component System in C11 that handles game logic, collision, and a level editor.\n\nThe second half is a 16-bit big-endian CPU emulator in C++17 — virtual bus, memory-mapped I/O, and a custom instruction set — so the vehicles' \"car-brain\" AI could be written in assembly and run by the emulated CPU. The work leaned heavily on careful manual memory management, bit-level handling of custom binary formats, and staying portable across Ubuntu and ARM Raspberry Pi.",
         imageUrl: spgPicture,
         link: "/files/spg_emulator.pdf",
-        altText: "C++ CPU Emulator and ECS Game Engine",
+        altText: "C++ CPU emulator and ECS game engine",
         tech: ["C11", "C++17", "ECS", "Assembly"],
     },
     tiny_ml: {
-        title: "TinyML: Low-Power Person Detection",
+        title: "TinyML: On-Device Person Detection for Drones",
         short_description:
-            "Developed a lightweight, real-time person detection system for UAVs using optimized TinyML models to enhance search and rescue operational time.",
+            "A real-time person-detection system that runs entirely on a drone's onboard hardware, so search-and-rescue flights don't have to burn power streaming live video. Quantized models cut size by up to 75% with little accuracy lost.",
         description:
-            "This project addresses the energy constraints of search and rescue (SAR) drones by deploying on-device inference to eliminate the need for power-hungry live video streaming. \n\nWe evaluated several state-of-the-art models (YOLO, FOMO, MobileNet-SSD, and EfficientDet), ultimately selecting and fine-tuning YOLO11n for its great balance of accuracy and latency. \n\nUsing TensorFlow Lite, we implemented post-training quantization (int8 and float16) to reduce model size by up to 75% while maintaining high detection precision. The system was benchmarked on Raspberry Pi 5 hardware, simulating a solar-powered UAV environment where we analyzed the trade-offs between CPU thermal output, energy consumption, and real-time inference speed.",
+            "Search-and-rescue drones lose most of their flight time to power-hungry video streaming. This project moves detection on-device so the drone only reports what matters. We benchmarked YOLO, FOMO, MobileNet-SSD and EfficientDet, then fine-tuned YOLO11n for the best balance of accuracy and latency.\n\nWith TensorFlow Lite, post-training quantization (int8 and float16) shrank the model by up to 75% while keeping detection precision high. Everything was measured on Raspberry Pi 5 hardware standing in for a solar-powered UAV, weighing the trade-offs between CPU heat, energy draw, and inference speed.",
         imageUrl: tinyMlPicture,
         link: "/files/tiny_ml_project.pdf",
-        altText: "UAV Person Detection on Edge Hardware",
+        altText: "On-device person detection on drone hardware",
         tech: ["Python", "TensorFlow Lite", "YOLO11n", "Raspberry Pi 5"],
     },
     brittleStarRL: {
-        title: "Reinforcement Learning Research: Brittle Star Locomotion",
+        title: "Reinforcement Learning: Brittle-Star Locomotion",
         short_description:
-            "A bio-inspired robotics study using Open Evolution Strategies (OpenES) to train an ANN-controlled brittle star for efficient, decentralized locomotion in MuJoCo.",
+            "A research project that trains a simulated brittle star to crawl using evolutionary reinforcement learning instead of hand-coded control. Energy-aware rewards produced 8% more efficient and noticeably more lifelike movement.",
         description:
-            "This research explores the intersection of evolutionary biology and reinforcement learning by simulating a brittle star’s decentralized movement. Using the MuJoCo physics engine and the Evosax framework, I developed a neural network controller trained via Open Evolution Strategies (OpenES). \n\nThe project involved designing custom reward structures for both 'Origin Avoidance' and 'Target Pursuit' tasks. By implementing energy-aware fitness functions, the simulation achieved an 8% increase in movement efficiency and more naturalistic biomechanical trajectories. The system features a modular architecture, allowing for flexible morphological configurations and detailed analysis of limb coordination (in-plane vs. out-of-plane) through custom visualization and plotting tools.",
+            "This study sits between evolutionary biology and reinforcement learning: can a brittle star's decentralized movement, which has no central brain, be learned rather than hand-coded? Using the MuJoCo physics engine and the Evosax framework, I trained a neural-network controller with Open Evolution Strategies (OpenES).\n\nI designed custom reward structures for two tasks — \"Origin Avoidance\" and \"Target Pursuit\" — with energy-aware fitness functions that pushed the simulation to 8% more efficient movement and more natural biomechanical trajectories. The architecture is modular, so different body morphologies can be swapped in and limb coordination (in-plane vs. out-of-plane) studied with custom visualization tools.",
         imageUrl: brittleStarPicture,
         link: "/files/brittle_star_research.pdf",
-        altText: "Reinforcement Learning Brittle Star Simulation",
+        altText: "Reinforcement learning brittle star simulation",
         tech: ["Python", "JAX", "MuJoCo", "Evosax"],
     },
     custom_enchants: {
@@ -201,6 +202,7 @@ const Home = () => {
                                             link={project.link}
                                             altText={project.altText}
                                             tech={project.tech}
+                                            imageContain={project.imageContain}
                                             onReadMore={() => openPopup(project)}
                                         />
                                     ))}
