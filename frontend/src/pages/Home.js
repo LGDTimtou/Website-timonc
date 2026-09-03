@@ -18,9 +18,9 @@ const projects = {
     solidcure: {
         title: "SolidCure — Cable Accessory Configurator",
         short_description:
-            "A tool that finds the right medium-voltage cable accessory for a customer's cable. You enter the cable's model and a few parameters; it looks up the matching datasheet, reads out all the values, and fills them into Nexans' accessory selection tool for you.",
+            "A tool I built to pick the right medium-voltage cable accessory for a customer's cable. You enter the cable's model and a few parameters; it looks up the matching datasheet, reads out all the values, and works out which Nexans connector, termination or cable joint fits. Before, this meant searching through Excel files by hand.",
         description:
-            "When a customer sends a medium-voltage cable and asks which connector, termination or cable joint fits it, someone has to look through datasheets, copy the right numbers into Nexans' accessory selection tool, and hope nothing was mistyped. It is slow and easy to get wrong.\n\nThis tool does that lookup automatically. You give it the cable's model and a few parameters; it finds the exact table for that cable, reads out the full set of parameters and the datasheet, and fills them into the Nexans selection tool.\n\nThe result is a fast and hard-to-get-wrong way to land on the correct Nexans accessory, instead of a manual process that took time and often produced mistakes.",
+            "When a customer sends a medium-voltage cable and asks which accessory fits it, a connector, termination or cable joint, someone used to search through Excel files by hand to find the cable, read off its parameters, and match it to the right Nexans part. It was slow and easy to get wrong.\n\nI built a tool that does the whole thing. You enter the cable's model and a few parameters; it finds the exact table for that cable, reads out its full set of parameters and its datasheet, and works out which Nexans accessory matches.\n\nThe result is a fast, hard-to-get-wrong way to land on the correct part, instead of a manual lookup that took time and often produced mistakes.",
         imageUrl: solidcurePicture,
         link: "https://solidcure.com",
         altText: "SolidCure medium-voltage cable accessory configurator",
@@ -176,14 +176,14 @@ const Home = () => {
                                 <h2>About Me</h2>
                                 <p>
                                     Hello! I'm <strong>Timon Coucke</strong>, a <strong>Backend Engineer at Lighthouse</strong> in
-                                    Ghent. I hold a Master's degree in Computer Science and Engineering from <strong>Ghent University</strong>.
+                                    Ghent. I have a <strong>Master's degree in Computer Science and Engineering</strong> from <strong>Ghent University</strong>.
                                 </p>
                                 <p>
                                     I'm passionate about automating and optimizing processes. By building custom software and integrating the right tools, I help teams operate more efficiently and save time.
                                 </p>
                                 <p>
-                                    In my free time I like to try out new tools, especially AI ones,
-                                    and work on developing smaller side projects.
+                                    In my free time I like to try out new frameworks, libraries,
+                                    languages and AI tools, and work on smaller side projects.
                                 </p>
                             </div>
                             <div className="about-image">
