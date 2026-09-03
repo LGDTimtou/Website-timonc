@@ -44,6 +44,88 @@
     border: 0;
 }
 
+/* Hero Section */
+.hero {
+    padding: 96px var(--section-pad-x) 84px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-inner {
+    width: 100%;
+    max-width: var(--section-max);
+}
+
+.hero-eyebrow {
+    margin: 0 0 18px;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    margin: 0;
+    max-width: 20ch;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text-color);
+}
+
+.hero-subtitle {
+    margin: 22px 0 0;
+    max-width: 58ch;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+}
+
+.hero-btn-primary {
+    background-color: var(--accent-color);
+    color: #0F1117;
+}
+
+.hero-btn-primary:hover {
+    background-color: var(--accent-strong);
+}
+
+.hero-btn-ghost {
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.hero-btn-ghost:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
 /* About Section */
 .about {
     padding: var(--section-pad-y) var(--section-pad-x);
@@ -224,6 +306,18 @@
         --section-pad-x: 20px;
     }
 
+    .hero {
+        padding: 64px var(--section-pad-x) 52px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-actions {
+        margin-top: 28px;
+    }
+
     .about-container {
         flex-direction: column-reverse;
         align-items: center;
@@ -271,6 +365,10 @@
     .projects h2,
     .contact h2 {
         font-size: 1.5rem;
+    }
+
+    .hero-btn {
+        flex: 1 1 auto;
     }
 
     .about-image img {

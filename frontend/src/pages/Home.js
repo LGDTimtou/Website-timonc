@@ -23,6 +23,7 @@ const projects = {
         imageUrl: renoperfectPicture,
         link: "https://renoperfect.be",
         altText: "RenoPerfect",
+        tech: ["Full-Stack", "REST API", "Web Scraping", "Dropbox"],
     },
     somko: {
         title: "Odoo ERP: Internship Somko",
@@ -33,6 +34,7 @@ const projects = {
         imageUrl: somkoPicture,
         link: "https://somko.be",
         altText: "Somko Odoo ERP Development",
+        tech: ["Odoo", "Python", "ERP"],
     },
     spg_emulator: {
         title: "Low-Level Game Engine & CPU Emulator",
@@ -43,6 +45,7 @@ const projects = {
         imageUrl: spgPicture,
         link: "/files/spg_emulator.pdf",
         altText: "C++ CPU Emulator and ECS Game Engine",
+        tech: ["C11", "C++17", "ECS", "Assembly"],
     },
     tiny_ml: {
         title: "TinyML: Low-Power Person Detection",
@@ -51,8 +54,9 @@ const projects = {
         description:
             "This project addresses the energy constraints of search and rescue (SAR) drones by deploying on-device inference to eliminate the need for power-hungry live video streaming. \n\nWe evaluated several state-of-the-art models (YOLO, FOMO, MobileNet-SSD, and EfficientDet), ultimately selecting and fine-tuning YOLO11n for its great balance of accuracy and latency. \n\nUsing TensorFlow Lite, we implemented post-training quantization (int8 and float16) to reduce model size by up to 75% while maintaining high detection precision. The system was benchmarked on Raspberry Pi 5 hardware, simulating a solar-powered UAV environment where we analyzed the trade-offs between CPU thermal output, energy consumption, and real-time inference speed.",
         imageUrl: tinyMlPicture,
-        link: "/files/tiny_ml_project.pdf", 
+        link: "/files/tiny_ml_project.pdf",
         altText: "UAV Person Detection on Edge Hardware",
+        tech: ["Python", "TensorFlow Lite", "YOLO11n", "Raspberry Pi 5"],
     },
     brittleStarRL: {
         title: "Reinforcement Learning Research: Brittle Star Locomotion",
@@ -63,6 +67,7 @@ const projects = {
         imageUrl: brittleStarPicture,
         link: "/files/brittle_star_research.pdf",
         altText: "Reinforcement Learning Brittle Star Simulation",
+        tech: ["Python", "JAX", "MuJoCo", "Evosax"],
     },
     custom_enchants: {
         title: "Minecraft Plugin:⚡Custom Enchants⚡",
@@ -132,6 +137,26 @@ const Home = () => {
             {!isIntroVisible && (
                 <div className="homepage">
                     <Header/>
+                    <section className="hero">
+                        <div className="hero-inner">
+                            <p className="hero-eyebrow">Software Engineer &middot; Ghent, Belgium</p>
+                            <h1 className="hero-title">
+                                I build software that automates the busywork.
+                            </h1>
+                            <p className="hero-subtitle">
+                                Master of Computer Science &amp; Engineering student at Ghent University
+                                and freelance software engineer &mdash; turning manual processes into
+                                custom full-stack tools.
+                            </p>
+                            <div className="hero-actions">
+                                <a href="#projects" className="hero-btn hero-btn-primary">View my work</a>
+                                <a href="#contact" className="hero-btn hero-btn-ghost">Get in touch</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div className="divider"></div>
+
                     <section id="about" className="about">
                         <div className="about-container">
                             <div className="about-text">
@@ -175,6 +200,7 @@ const Home = () => {
                                             imageUrl={project.imageUrl}
                                             link={project.link}
                                             altText={project.altText}
+                                            tech={project.tech}
                                             onReadMore={() => openPopup(project)}
                                         />
                                     ))}
