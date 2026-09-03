@@ -15,11 +15,11 @@ import Contact from "../components/home/Contact";
 
 const projects = {
     renoperfect: {
-        title: "RenoPerfect — Full-Stack Field Platform",
+        title: "RenoPerfect — Full-Stack Web App",
         short_description:
-            "A full-stack platform that runs the daily operations of a construction company. Crews pull up their assignments, log hours and materials, and upload progress photos from the job site — all synced straight into the company database and Dropbox.",
+            "A full-stack web app I built for a construction company. Workers use it to see the jobs assigned to them each day, log their hours and materials, and upload photos from site. Everything syncs to the company's database and Dropbox.",
         description:
-            "RenoPerfect replaced the paperwork and phone calls a growing construction company was running on. Through an API tied to the company database, employees open their daily assignments with everything they need in one place — required materials, reference images, and mandates — and log their worked hours and used materials on the spot.\n\nAt the end of each day, progress photos uploaded from the field land automatically in the company's Dropbox, organized per project. A web-scraping pipeline also pulls work orders from insurance companies straight into the database, removing an entire category of manual data entry.",
+            "RenoPerfect is a construction company that was managing its daily work with paperwork and phone calls. I built a web app to replace that.\n\nEmployees log in to see the jobs assigned to them for the day, along with the materials, reference images and mandates for each one. They record their worked hours and used materials directly in the app, and upload photos of finished work at the end of the day. Those photos are saved to the company's Dropbox, sorted per project.\n\nThe app also runs a scraper that reads incoming work orders from insurance companies and adds them to the database automatically, so nobody has to type them in.",
         imageUrl: renoperfectPicture,
         link: "https://renoperfect.be",
         altText: "RenoPerfect field operations platform",
@@ -28,9 +28,9 @@ const projects = {
     somko: {
         title: "Odoo ERP Internship — Somko",
         short_description:
-            "Extended Somko's Odoo ERP with a client-facing portal for support tickets and a sprint-planning module for project managers — turning a plain ticket list into a real project-management workflow.",
+            "My internship project: a custom extension for Somko's Odoo ERP. It adds a portal where clients can open and follow up on support tickets, plus a sprint-planning module and dashboards for the project managers.",
         description:
-            "During my internship at Somko I built a custom Odoo extension to close the gap between clients and the project managers delivering their work. Clients got a dedicated portal where they raise tickets with structured details and follow up through a built-in chat, instead of scattered emails.\n\nOn the internal side, I added a sprint-based planning module and richer management dashboards, giving project managers a clear read on delivery speed and how reliably deadlines are being met.",
+            "This was my internship project at Somko. They use Odoo as their ERP, and I built a custom extension for it.\n\nThe main part is a client portal: customers can open support tickets with structured fields and follow up through a chat, instead of sending loose emails. On the internal side, I added a module for planning work in sprints and some extra dashboards, so project managers can see how fast work is moving and whether deadlines are being met.",
         imageUrl: somkoPicture,
         link: "https://somko.be",
         altText: "Somko Odoo ERP client portal",
@@ -40,9 +40,9 @@ const projects = {
     spg_emulator: {
         title: "Game Engine & 16-bit CPU Emulator",
         short_description:
-            "A platform-independent game engine paired with a from-scratch 16-bit CPU emulator, written in C11 and C++17. Game objects run on a custom Entity Component System, and the in-game AI is real assembly executed by the emulated processor.",
+            "A university project with two parts: a small puzzle game with its own engine, and a 16-bit CPU emulator I wrote from scratch. Game objects use a custom entity-component system, and the in-game AI runs as assembly code on the emulated CPU.",
         description:
-            "Built as a systems-programming project at Ghent University, this is a puzzle game running on top of a hardware emulator I designed myself. The first half is a data-driven Entity Component System in C11 that handles game logic, collision, and a level editor.\n\nThe second half is a 16-bit big-endian CPU emulator in C++17 — virtual bus, memory-mapped I/O, and a custom instruction set — so the vehicles' \"car-brain\" AI could be written in assembly and run by the emulated CPU. The work leaned heavily on careful manual memory management, bit-level handling of custom binary formats, and staying portable across Ubuntu and ARM Raspberry Pi.",
+            "This was a systems-programming project at Ghent University, split into two parts.\n\nThe first part is a game engine built around a data-driven entity-component system in C11. It handles game logic, collision detection and a level editor for a small puzzle game.\n\nThe second part is a 16-bit big-endian CPU emulator written in C++17, with a virtual bus, memory-mapped I/O and its own instruction set. The vehicle AI in the game is written in assembly and executed by this emulated CPU. Most of the work went into manual memory management, reading and writing custom binary formats at the bit level, and keeping everything running on both Ubuntu and a Raspberry Pi.",
         imageUrl: spgPicture,
         link: "/files/spg_emulator.pdf",
         altText: "C++ CPU emulator and ECS game engine",
@@ -51,9 +51,9 @@ const projects = {
     tiny_ml: {
         title: "TinyML: On-Device Person Detection for Drones",
         short_description:
-            "A real-time person-detection system that runs entirely on a drone's onboard hardware, so search-and-rescue flights don't have to burn power streaming live video. Quantized models cut size by up to 75% with little accuracy lost.",
+            "A person-detection model that runs on a drone's own hardware instead of streaming video to a server, which saves power on search-and-rescue flights. We compared several models and used quantization to shrink the chosen one by up to 75%.",
         description:
-            "Search-and-rescue drones lose most of their flight time to power-hungry video streaming. This project moves detection on-device so the drone only reports what matters. We benchmarked YOLO, FOMO, MobileNet-SSD and EfficientDet, then fine-tuned YOLO11n for the best balance of accuracy and latency.\n\nWith TensorFlow Lite, post-training quantization (int8 and float16) shrank the model by up to 75% while keeping detection precision high. Everything was measured on Raspberry Pi 5 hardware standing in for a solar-powered UAV, weighing the trade-offs between CPU heat, energy draw, and inference speed.",
+            "Search-and-rescue drones spend a lot of their battery streaming live video back to an operator. The idea here was to run the detection on the drone itself, so it only needs to send something when it actually spots a person.\n\nWe tested several detection models (YOLO, FOMO, MobileNet-SSD, EfficientDet) and picked YOLO11n for its balance of accuracy and speed. Using TensorFlow Lite, we applied post-training quantization (int8 and float16), which reduced the model size by up to 75% with only a small drop in accuracy.\n\nWe ran the benchmarks on a Raspberry Pi 5 as a stand-in for a solar-powered drone, and looked at how CPU temperature, power draw and inference speed trade off against each other.",
         imageUrl: tinyMlPicture,
         link: "/files/tiny_ml_project.pdf",
         altText: "On-device person detection on drone hardware",
@@ -62,9 +62,9 @@ const projects = {
     brittleStarRL: {
         title: "Reinforcement Learning: Brittle-Star Locomotion",
         short_description:
-            "A research project that trains a simulated brittle star to crawl using evolutionary reinforcement learning instead of hand-coded control. Energy-aware rewards produced 8% more efficient and noticeably more lifelike movement.",
+            "A research project where a simulated brittle star learns to move using evolutionary reinforcement learning, rather than hand-written control. Adding an energy cost to the reward made its movement about 8% more efficient and more natural-looking.",
         description:
-            "This study sits between evolutionary biology and reinforcement learning: can a brittle star's decentralized movement, which has no central brain, be learned rather than hand-coded? Using the MuJoCo physics engine and the Evosax framework, I trained a neural-network controller with Open Evolution Strategies (OpenES).\n\nI designed custom reward structures for two tasks — \"Origin Avoidance\" and \"Target Pursuit\" — with energy-aware fitness functions that pushed the simulation to 8% more efficient movement and more natural biomechanical trajectories. The architecture is modular, so different body morphologies can be swapped in and limb coordination (in-plane vs. out-of-plane) studied with custom visualization tools.",
+            "A brittle star moves its arms without a central brain coordinating them. This project looked at whether that kind of decentralized movement can be learned instead of programmed by hand.\n\nI used the MuJoCo physics engine and the Evosax library to train a neural-network controller with Open Evolution Strategies. I set up two tasks, \"Origin Avoidance\" and \"Target Pursuit\", and added an energy term to the reward function. That made the learned movement about 8% more efficient and closer to how a real brittle star moves.\n\nThe setup is modular, so different body shapes can be tried, and it includes tools for plotting how the arms coordinate (in-plane versus out-of-plane movement).",
         imageUrl: brittleStarPicture,
         link: "/files/brittle_star_research.pdf",
         altText: "Reinforcement learning brittle star simulation",
