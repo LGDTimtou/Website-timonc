@@ -170,9 +170,9 @@ const Home = () => {
                                     I'm passionate about automating and optimizing processes. By building custom software and integrating the right tools, I help teams operate more efficiently and save time.
                                 </p>
                                 <p>
-                                    In my free time, I love modding for a
-                                    variety of games, combining my technical skills with
-                                    creativity.
+                                    Outside of work I like keeping up with new developer tools and AI
+                                    integrations, usually by wiring them into a small side project to
+                                    see what they are actually good for.
                                 </p>
                             </div>
                             <div className="about-image">
