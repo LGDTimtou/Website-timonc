@@ -5,6 +5,7 @@ import renoperfectPicture from "../assets/images/renoperfect.jpg";
 import customEnchantsPicture from "../assets/images/custom_enchants.png";
 import somkoPicture from "../assets/images/odoo.png";
 import solidcurePicture from "../assets/images/solidcure.png";
+import gaussianSplattingPicture from "../assets/images/gaussian_splatting.png";
 import brittleStarPicture from "../assets/images/brittle_star.png";
 import spgPicture from "../assets/images/spg_emulator.gif";
 import tinyMlPicture from "../assets/images/tiny_ml.gif";
@@ -25,6 +26,7 @@ const projects = {
         link: "https://solidcure.com",
         altText: "SolidCure medium-voltage cable accessory configurator",
         imageFit: "contain-dark",
+        tech: ["Python", "Web Scraping"],
     },
     renoperfect: {
         title: "RenoPerfect — Full-Stack Web App",
@@ -35,7 +37,18 @@ const projects = {
         imageUrl: renoperfectPicture,
         link: "https://renoperfect.be",
         altText: "RenoPerfect field operations platform",
-        tech: ["Full-Stack", "REST API", "Web Scraping", "Dropbox"],
+        tech: ["Django", "React", "Web Scraping", "Dropbox"],
+    },
+    gaussianSplatting: {
+        title: "Master's Thesis: Edge-Guided 3D Gaussian Splatting",
+        short_description:
+            "My Master's thesis on 3D Gaussian Splatting, a method that turns a set of photos into a 3D scene you can move a camera through in real time. Instead of starting the reconstruction from a rough point cloud, I use the camera images and LiDAR depth to place the initial Gaussians where the scene actually has detail. That makes training converge faster and reach the same quality with fewer Gaussians. The code is open-source on GitHub.",
+        description:
+            "3D Gaussian Splatting reconstructs a real scene as millions of small coloured 3D blobs, or Gaussians, that get optimised until renders of them match the input photos. The result renders in real time, but the optimisation has to start from somewhere, and it normally starts from a sparse point cloud from Structure-from-Motion or raw LiDAR. Where the scene has little texture or detail that starting point is poor, and the optimiser burns a lot of effort and a lot of Gaussians fixing it.\n\nI built an initialisation step that uses what is already available for each frame: the camera image, and depth completed from sparse LiDAR. It detects photometric edges from the image and geometric edges from the depth, then splits the frame into a tree of regions that is fine where the scene is complex and coarse where it is flat. Each region becomes one Gaussian, positioned and sized from that region and its depth. Regions that earlier frames already cover well are skipped, so redundant Gaussians don't pile up.\n\nCompared to a strong LiDAR-based baseline, this converges faster in the early iterations and reaches similar or better reconstruction quality with fewer Gaussians. It drops into an existing splatting pipeline without changing how the optimisation itself works, and the implementation is released as open-source code.",
+        imageUrl: gaussianSplattingPicture,
+        link: "/files/gaussian_splatting_thesis.pdf",
+        altText: "Edge-guided hierarchical initialization for 3D Gaussian Splatting",
+        tech: ["Python", "3D Gaussian Splatting", "LiDAR", "CUDA"],
     },
     somko: {
         title: "Odoo ERP Internship — Somko",
@@ -58,7 +71,7 @@ const projects = {
         imageUrl: spgPicture,
         link: "/files/spg_emulator.pdf",
         altText: "C++ CPU emulator and ECS game engine",
-        tech: ["C11", "C++17", "ECS", "Assembly"],
+        tech: ["C", "C++", "ECS", "Assembly"],
     },
     tiny_ml: {
         title: "TinyML: On-Device Person Detection for Drones",

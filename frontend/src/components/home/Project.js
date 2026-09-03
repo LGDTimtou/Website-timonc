@@ -4,23 +4,52 @@ import {
     SiPython,
     SiCplusplus,
     SiC,
+    SiDjango,
+    SiReact,
+    SiScrapy,
     SiTensorflow,
     SiRaspberrypi,
     SiDropbox,
     SiOdoo,
+    SiNvidia,
 } from "react-icons/si";
+import {
+    FaSitemap,
+    FaCubes,
+    FaMicrochip,
+    FaEye,
+    FaBolt,
+    FaAtom,
+    FaDna,
+    FaCube,
+    FaBroadcastTower,
+} from "react-icons/fa";
 import "../../styles/home/Project.css";
 
-// Maps a tech label to a brand icon where one exists. Labels without an
-// entry render as a plain text pill.
+// Maps a tech label to an icon. Brand icons where one exists, otherwise a
+// generic icon that fits the concept. Every label used across the projects
+// has an entry here.
 const TECH_ICONS = {
     Python: SiPython,
-    "C++17": SiCplusplus,
-    C11: SiC,
-    "TensorFlow Lite": SiTensorflow,
-    "Raspberry Pi 5": SiRaspberrypi,
+    "Web Scraping": SiScrapy,
+    Django: SiDjango,
+    React: SiReact,
     Dropbox: SiDropbox,
     Odoo: SiOdoo,
+    ERP: FaSitemap,
+    C: SiC,
+    "C++": SiCplusplus,
+    ECS: FaCubes,
+    Assembly: FaMicrochip,
+    "TensorFlow Lite": SiTensorflow,
+    YOLO11n: FaEye,
+    "Raspberry Pi 5": SiRaspberrypi,
+    JAX: FaBolt,
+    MuJoCo: FaAtom,
+    Evosax: FaDna,
+    "3D Gaussian Splatting": FaCube,
+    LiDAR: FaBroadcastTower,
+    CUDA: SiNvidia,
 };
 
 const Project = ({ title, description, imageUrl, link, altText, tech, imageFit, onReadMore }) => {
