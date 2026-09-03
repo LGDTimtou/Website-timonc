@@ -18,7 +18,7 @@ const projects = {
     solidcure: {
         title: "SolidCure — Cable Accessory Configurator",
         short_description:
-            "The client sends over a cable model and a few parameters as text. You paste that straight into the tool, and it finds the right cable and its datasheet, pulls every parameter it needs, and lets you land on the matching accessory in no time. A process that is normally slow and prone to mistakes is now practically dummy-proof.",
+            "A tool I built to pick the right medium-voltage cable accessory for a customer's cable. You enter the cable's model and a few parameters; it looks up the matching datasheet, reads out all the values, and works out which Nexans connector, termination or cable joint fits. Before, this meant searching through Excel files by hand.",
         description:
             "When a customer sends a medium-voltage cable and asks which accessory fits it, a connector, termination or cable joint, someone used to search through Excel files by hand to find the cable, read off its parameters, and match it to the right Nexans part. It was slow and easy to get wrong.\n\nI built a tool that does the whole thing. You enter the cable's model and a few parameters; it finds the exact table for that cable, reads out its full set of parameters and its datasheet, and works out which Nexans accessory matches.\n\nThe result is a fast, hard-to-get-wrong way to land on the correct part, instead of a manual lookup that took time and often produced mistakes.",
         imageUrl: solidcurePicture,
