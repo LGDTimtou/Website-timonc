@@ -48,19 +48,6 @@ const Contact = () => {
             <div className="container">
                 <h2>Contact Me</h2>
                 <div className="contact-list">
-                    <a href="tel:+32478760103" className="contact-item" aria-label="Call Timon Coucke">
-                        <FaPhone className="contact-icon" />
-                        <span>Call me</span>
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/timon-coucke-155ab61a3/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="contact-item"
-                    >
-                        <FaLinkedin className="contact-icon" />
-                        <span>Timon Coucke</span>
-                    </a>
                     <div className="contact-item contact-item-email">
                         <a href={`mailto:${EMAIL}`} className="contact-email-link">
                             <FaEnvelope className="contact-icon" />
@@ -76,6 +63,19 @@ const Contact = () => {
                             <span className="contact-copy-label">{copied ? "Copied!" : "Copy"}</span>
                         </button>
                     </div>
+                    <a href="tel:+32478760103" className="contact-item" aria-label="Call Timon Coucke">
+                        <FaPhone className="contact-icon" />
+                        <span>Call me</span>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/timon-coucke-155ab61a3/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="contact-item"
+                    >
+                        <FaLinkedin className="contact-icon" />
+                        <span>Timon Coucke</span>
+                    </a>
                 </div>
             </div>
         </section>

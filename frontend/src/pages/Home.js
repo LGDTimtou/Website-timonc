@@ -139,14 +139,14 @@ const Home = () => {
                     <Header/>
                     <section className="hero">
                         <div className="hero-inner">
-                            <p className="hero-eyebrow">Software Engineer &middot; Ghent, Belgium</p>
+                            <p className="hero-eyebrow">Backend Engineer &middot; Ghent, Belgium</p>
                             <h1 className="hero-title">
                                 I build software that automates the busywork.
                             </h1>
                             <p className="hero-subtitle">
-                                Master of Computer Science &amp; Engineering student at Ghent University
-                                and freelance software engineer &mdash; turning manual processes into
-                                custom full-stack tools.
+                                Backend Engineer at Lighthouse in Ghent, and a Master of Computer
+                                Science &amp; Engineering from Ghent University &mdash; building software
+                                that turns manual processes into reliable tools.
                             </p>
                             <div className="hero-actions">
                                 <a href="#projects" className="hero-btn hero-btn-primary">View my work</a>
@@ -162,11 +162,11 @@ const Home = () => {
                             <div className="about-text">
                                 <h2>About Me</h2>
                                 <p>
-                                    Hello! I'm <strong>Timon Coucke</strong>, a graduating Master of Computer Science and Engineering
-                                    student at <strong>Ghent University</strong> and a freelance software engineer.
+                                    Hello! I'm <strong>Timon Coucke</strong>, a <strong>Backend Engineer at Lighthouse</strong> in
+                                    Ghent. I hold a Master's degree in Computer Science and Engineering from <strong>Ghent University</strong>.
                                 </p>
                                 <p>
-                                    I'm passionate about automating and optimizing processes. By building custom software and integrating the right tools, I help companies operate more efficiently and save time.
+                                    I'm passionate about automating and optimizing processes. By building custom software and integrating the right tools, I help teams operate more efficiently and save time.
                                 </p>
                                 <p>
                                     In my free time, I love modding for a

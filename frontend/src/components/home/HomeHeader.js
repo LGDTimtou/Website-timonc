@@ -52,9 +52,9 @@ const Header = () => {
                 <div className="home-header-left">
                     <h1 className="name">Timon Coucke</h1>
                     <p className="tagline"><strong>
-                        <span className="tagline-line">Software Engineer</span>
+                        <span className="tagline-line">Backend Engineer @ Lighthouse</span>
                         <span className="tagline-separator"> | </span>
-                        <span className="tagline-line">Computer Science @{" "}
+                        <span className="tagline-line">MSc Computer Science &amp; Engineering,{" "}
                             <a className="base-url" href="https://www.ugent.be/en" target="_blank" rel="noopener noreferrer">
                             UGent
                             </a>
