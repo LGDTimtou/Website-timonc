@@ -4,6 +4,7 @@ import profilePicture from "../assets/images/portret.jpg";
 import renoperfectPicture from "../assets/images/renoperfect.jpg";
 import customEnchantsPicture from "../assets/images/custom_enchants.png";
 import somkoPicture from "../assets/images/odoo.png";
+import solidcurePicture from "../assets/images/solidcure.png";
 import brittleStarPicture from "../assets/images/brittle_star.png";
 import spgPicture from "../assets/images/spg_emulator.gif";
 import tinyMlPicture from "../assets/images/tiny_ml.gif";
@@ -14,6 +15,17 @@ import ProjectPopup from "../components/home/ProjectPopup";
 import Contact from "../components/home/Contact";
 
 const projects = {
+    solidcure: {
+        title: "SolidCure — Cable Accessory Configurator",
+        short_description:
+            "A tool that finds the right medium-voltage cable accessory for a customer's cable. You enter the cable's model and a few parameters; it looks up the matching datasheet, reads out all the values, and fills them into Nexans' accessory selection tool for you.",
+        description:
+            "When a customer sends a medium-voltage cable and asks which connector, termination or cable joint fits it, someone has to look through datasheets, copy the right numbers into Nexans' accessory selection tool, and hope nothing was mistyped. It is slow and easy to get wrong.\n\nThis tool does that lookup automatically. You give it the cable's model and a few parameters; it finds the exact table for that cable, reads out the full set of parameters and the datasheet, and fills them into the Nexans selection tool.\n\nThe result is a fast and hard-to-get-wrong way to land on the correct Nexans accessory, instead of a manual process that took time and often produced mistakes.",
+        imageUrl: solidcurePicture,
+        link: "https://solidcure.com",
+        altText: "SolidCure medium-voltage cable accessory configurator",
+        imageFit: "contain-dark",
+    },
     renoperfect: {
         title: "RenoPerfect — Full-Stack Web App",
         short_description:
@@ -35,7 +47,7 @@ const projects = {
         link: "https://somko.be",
         altText: "Somko Odoo ERP client portal",
         tech: ["Odoo", "Python", "ERP"],
-        imageContain: true,
+        imageFit: "contain-light",
     },
     spg_emulator: {
         title: "Game Engine & 16-bit CPU Emulator",
@@ -170,9 +182,8 @@ const Home = () => {
                                     I'm passionate about automating and optimizing processes. By building custom software and integrating the right tools, I help teams operate more efficiently and save time.
                                 </p>
                                 <p>
-                                    Outside of work I like keeping up with new developer tools and AI
-                                    integrations, usually by wiring them into a small side project to
-                                    see what they are actually good for.
+                                    In my free time I like to try out new tools, especially AI ones,
+                                    and work on developing smaller side projects.
                                 </p>
                             </div>
                             <div className="about-image">
@@ -202,7 +213,7 @@ const Home = () => {
                                             link={project.link}
                                             altText={project.altText}
                                             tech={project.tech}
-                                            imageContain={project.imageContain}
+                                            imageFit={project.imageFit}
                                             onReadMore={() => openPopup(project)}
                                         />
                                     ))}

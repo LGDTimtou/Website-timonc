@@ -103,16 +103,22 @@
 }
 
 /* Logos / wide artwork: show the whole image instead of cropping it */
-.project-image--contain a {
+.project-image--contain-light a {
     background-color: #ffffff;
 }
 
-.project-image--contain img {
+.project-image--contain-dark a {
+    background-color: #12141b;
+}
+
+.project-image--contain-light img,
+.project-image--contain-dark img {
     object-fit: contain;
     padding: 22px;
 }
 
-.project-image--contain a:hover img {
+.project-image--contain-light a:hover img,
+.project-image--contain-dark a:hover img {
     transform: scale(1.03);
 }
 

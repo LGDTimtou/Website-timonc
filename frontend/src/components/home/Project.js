@@ -23,8 +23,9 @@ const TECH_ICONS = {
     Odoo: SiOdoo,
 };
 
-const Project = ({ title, description, imageUrl, link, altText, tech, imageContain, onReadMore }) => {
+const Project = ({ title, description, imageUrl, link, altText, tech, imageFit, onReadMore }) => {
     const paragraphs = description.split("\n").filter((line) => line.trim() !== "");
+    const imageClass = imageFit ? `project-image--${imageFit}` : "";
 
     return (
         <div className="project-item">
@@ -54,7 +55,7 @@ const Project = ({ title, description, imageUrl, link, altText, tech, imageConta
                     Read more <span aria-hidden="true">&rarr;</span>
                 </button>
             </div>
-            <div className={`project-image ${imageContain ? "project-image--contain" : ""}`}>
+            <div className={`project-image ${imageClass}`}>
                 <a href={link} target="_blank" rel="noopener noreferrer">
                     <img src={imageUrl} alt={altText} />
                 </a>
@@ -70,7 +71,7 @@ Project.propTypes = {
     link: PropTypes.string.isRequired,
     altText: PropTypes.string.isRequired,
     tech: PropTypes.arrayOf(PropTypes.string),
-    imageContain: PropTypes.bool,
+    imageFit: PropTypes.oneOf(["contain-light", "contain-dark"]),
     onReadMore: PropTypes.func.isRequired,
 };
 
