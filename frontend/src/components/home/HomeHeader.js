@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import "../../styles/home/HomeHeader.css";
+
+const GITHUB_URL = "https://github.com/LGDTimtou";
+const LINKEDIN_URL = "https://www.linkedin.com/in/timon-coucke-155ab61a3/";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,9 +67,18 @@ const Header = () => {
                 </div>
                 <div className="mobile-actions">
                     <a
+                        className="mobile-social-link"
+                        href={LINKEDIN_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                    >
+                        <FaLinkedin className="github-icon" />
+                    </a>
+                    <a
                         ref={mobileGithubRef}
                         className="mobile-github-link"
-                        href="https://github.com/LGDTimtou"
+                        href={GITHUB_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="GitHub"
@@ -91,9 +103,18 @@ const Header = () => {
                         <li><a href="#about" onClick={closeMenu}>About</a></li>
                         <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
                         <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
-                        <li className="github-link">
+                        <li className="social-links">
                             <a
-                                href="https://github.com/LGDTimtou"
+                                href={LINKEDIN_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="LinkedIn"
+                                onClick={closeMenu}
+                            >
+                                <FaLinkedin className="github-icon" />
+                            </a>
+                            <a
+                                href={GITHUB_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="GitHub"
